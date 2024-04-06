@@ -1,0 +1,19 @@
+  
+//UI settings
+@import 'animations.scss';
+@import 'fonts.scss';
+@import 'normalize.scss';
+@import 'root.scss';
+@import 'utilities.scss';
+@import 'effects.scss';
+
+
+// Components
+@import '../components/Navbar/navbar';
+@import '../components/Hero/hero';
+@import '../components/Newsletter/newsletter';
+@import '../components/About/about';
+@import '../components/Desk/desk';
+
+
+// Screens 

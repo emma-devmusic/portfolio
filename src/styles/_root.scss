@@ -1,0 +1,44 @@
+:root {
+    font-family: Kollektif, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    // color-scheme: light dark;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+    height: 100%;
+    width: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  // scroll-snap-type: y mandatory;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app {
+  background-image: url('/src/assets/img/background-code.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+

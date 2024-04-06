@@ -1,0 +1,13 @@
+#desk {
+    // scroll-snap-align: start;
+    background-color: rgba(255, 255, 255, 0.034);
+    scrollbar-width: none;
+    .title-project {
+        height: 100%;
+        h2 {
+            text-transform: uppercase;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.904);
+        }
+    }       
+}
