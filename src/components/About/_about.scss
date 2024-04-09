@@ -1,5 +1,6 @@
 #about {
     height: 100vh;
+    height: 100%;
     max-height: 800px;
     overflow: hidden;
     .about-box {
@@ -38,14 +39,17 @@
         }
         .about-image {
             position: relative;
+            left: -50px;
             img {
                 border-radius: 8px;
                 border: 1px solid white;
                 position: relative;
-                width: 700px;
-                height: 400px;
+                width: auto;
+                height: 250px;
                 object-fit: cover;
+                transform: perspective(130px) rotateX(0deg) rotateY(-5deg);
                 &:nth-child(2) {
+                    transform: perspective(200px) rotateX(0deg) rotateY(-5deg);
                     position: absolute;
                     top: 5rem;
                     left: 5rem;

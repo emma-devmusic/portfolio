@@ -1,27 +1,92 @@
 #navbar-1 {
     background-color: transparent; //---------------------------< CAMBIAR
-    position: absolute;
     z-index: 0;
-    width: 100%;
-    height: 100px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
     .navbar-1_box{
         height: 100%;
-        margin: 0 3rem;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        padding: 0rem 2rem;
+        align-items: center;
+        transition: .7s ease-in-out;
     }
-    .logo img{
-        width: 250px;
-        opacity: 0; //---------------------------< CAMBIAR
+    .logo {
+        transition: .7s ease-in-out;
+        h2{
+            text-align: center;
+            position: relative;
+            top: -30px;
+            font-size: 2.5rem;
+            transition: .3s ease-in-out;
+            &:hover {
+                text-shadow: 0px 0px 8px aqua;
+                cursor: pointer;
+            }
+            span {
+                position: relative;
+                top: 7px;
+                font-size: 2.8rem;
+            }
+        }
+    }
+    .line {
+        width: 1px;
+        height: 20%;
+        background-color: white;
+        transform: translateY(-90px);
+        transition: .7s ease-in-out;
+
+        
     }
     nav{
+        transition: .8s ease-in;
         align-self: center;
-        opacity: 0; //---------------------------< CAMBIAR
+        opacity: 1; //---------------------------< CAMBIAR
         ul {
+            transform: translateY(-70px);
             display: flex;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 7rem;
+            transition: .7s ease-in-out;
+            
+            li {
+                transform: rotate(-90deg);
+                &:hover {
+                    transition: all .2s ease;
+                    text-shadow: 0px 0px 7px aqua;
+                }
+            }
         }
     } 
+
+    .mini-nav {
+        height: 0%;
+        transition: .7s ease-in-out;
+        .logo {
+            z-index: 5;
+            h2 {
+                transform: rotate(360deg);
+                transition: .3s ease-in-out;
+            }
+        }
+        .line {
+            height: 0%;
+            transition: .7s ease-in-out;
+        }
+        nav {
+            opacity: 0;
+            transition: .8s ease-in;
+            ul {
+                transform: translateY(-400px) ;
+                transition: .7s ease-in-out;
+            }
+        }
+    }
 }
+
+
+
+
 

@@ -1,11 +1,22 @@
-import logo from '../../assets/img/logo-frontend-developer-white.png'
+import { useEffect, useState } from 'react'
 
 export const Navbar = () => {
+
+    const [openMenu, setOpenMenu] = useState(false)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setOpenMenu(true)
+        }, 3000);
+    }, [])
+
     return (
         <div id='navbar-1'>
-            <div className="navbar-1_box">
+            <header className={`navbar-1_box ${!openMenu && 'mini-nav'}`}>
                 <div className="logo">
-                    <img src={logo} alt="Logo Developer Emmanuel" />
+                    <h2>{'<'}<span>/</span>{'>'}</h2>
+                </div>
+                <div className='line'>
                 </div>
                 <nav>
                     <ul>
@@ -14,7 +25,7 @@ export const Navbar = () => {
                         <li><a href="#">CONTACTAME</a></li>
                     </ul>
                 </nav>
-            </div>
+            </header>
         </div>
     )
 }

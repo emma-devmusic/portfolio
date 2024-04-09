@@ -4,12 +4,10 @@ import dos from '../../assets/img/parallax/6.png'
 import tres from '../../assets/img/parallax/7.png'
 import cuatro from '../../assets/img/parallax/8.png'
 import cinco from '../../assets/img/parallax/9.png'
-import { useRef, useState } from "react"
+import { useRef } from "react"
 
 export const Desk = () => {
     const parallax = useRef<IParallax>(null!)
-
-    const [isHover, setIsHover] = useState(false)
 
     const clg = () => {
         if (parallax.current) {
