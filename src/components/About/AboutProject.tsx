@@ -8,7 +8,7 @@ interface Props {
 }
 
 
-export const About = ({imgBack, imgFront}: Props) => {
+export const AboutProject = ({imgBack, imgFront}: Props) => {
 
     const { ref, isVisible } = useIntersection()
 
@@ -29,8 +29,8 @@ export const About = ({imgBack, imgFront}: Props) => {
                     <p className='text-lg mt-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit aperiam, excepturi eius provident impedit fugit cum, quia, asperiores inventore debitis magnam? Id, in neque distinctio incidunt explicabo illo laudantium architecto.</p>
                 </div>
                 <div className="about-image">
-                    <img src={imgBack} alt="image coding" />
-                    <img src={imgFront} alt="image coding" />
+                    <img src={imgBack} alt="image coding" className='aspect-video' />
+                    <img src={imgFront} alt="image coding" className='aspect-video' />
                 </div>
             </div>
         </section>

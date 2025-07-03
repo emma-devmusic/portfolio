@@ -1,5 +1,10 @@
-import { About, Hero, Newsletter } from "./components";
-import code1 from "./assets/img/code-image-1.jpg";
+import { AboutProject, Hero, Newsletter } from "./components";
+import pc1 from "./assets/img/padel-center/padel-center-1.png";
+import pc2 from "./assets/img/padel-center/padel-center-2.png";
+import cg1 from "./assets/img/clinica-giuliani/clinica-giuliani-1.png";
+import cg2 from "./assets/img/clinica-giuliani/clinica-giuliani-2.png";
+import sm1 from "./assets/img/sm-innova/sm-innova-1.png"
+import sm2 from "./assets/img/sm-innova/sm-innova-2.png"
 import { MouseEvent, useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import circle from "./assets/img/parallax/circle.png";
@@ -72,21 +77,21 @@ const App = () => {
               <Hero />
             </ParallaxLayer>
 
-            <ParallaxLayer
-              offset={0}
-              speed={1}
-              style={{ position: "relative", top: "40%" }}
-            >
-              <About imgBack={code1} imgFront={code1} />
+            <ParallaxLayer offset={.9} speed={.5}>
+              <AboutProject imgBack={pc1} imgFront={pc2} />
             </ParallaxLayer>
 
-            <ParallaxLayer offset={1.2} speed={1}>
-              <About imgBack={code1} imgFront={code1} />
+            <ParallaxLayer offset={1.5} speed={.5}>
+              <AboutProject imgBack={cg2} imgFront={cg1} />
             </ParallaxLayer>
 
-            <ParallaxLayer offset={2} speed={1}>
+            <ParallaxLayer offset={2} speed={.5}>
+              <AboutProject imgBack={sm1} imgFront={sm2} />
+            </ParallaxLayer>
+
+            {/* <ParallaxLayer offset={2} speed={1}>
               <Newsletter />
-            </ParallaxLayer>
+            </ParallaxLayer> */}
 
             {/* <ParallaxLayer offset={1.99} speed={1} style={{top: '0px'}}>
                 <Desk />
