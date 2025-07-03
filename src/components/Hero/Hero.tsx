@@ -3,7 +3,13 @@ import { ReactTyped } from 'react-typed';
 
 
 export const Hero = () => {
-    
+
+    const typedStyle: React.CSSProperties = {
+        fontSize: '4rem',
+        position: 'relative',
+        top: '10px'
+    }
+
     return (
         <section id="hero" >
             <div className="hero_box">
@@ -17,11 +23,7 @@ export const Hero = () => {
                                 startDelay={1100}
                                 strings={['<strong className="span-4">EMMANUEL</strong>']} 
                                 typeSpeed={80}
-                                style={{
-                                    fontSize: '6.5rem',
-                                    position: 'relative',
-                                    top: '10px'
-                                }}
+                                style={typedStyle}
                                 cursorChar=''
                             />
                         </h1>

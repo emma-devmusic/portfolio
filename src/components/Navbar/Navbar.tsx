@@ -11,7 +11,7 @@ export const Navbar = () => {
     }, [])
 
     return (
-        <div id='navbar-1'>
+        <div id='navbar-1' className={``}>
             <header className={`navbar-1_box ${!openMenu && 'mini-nav'}`}>
                 <div className="logo">
                     <h2>{'<'}<span>/</span>{'>'}</h2>

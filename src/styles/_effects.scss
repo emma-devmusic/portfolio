@@ -1,15 +1,14 @@
-#content-degrade{
-    display: flex;
+#content-degrade {
     height: 100%;
     min-height: 100vh;
     width: 100%;
-    top: 0px;
-    left: 0px;
     z-index: 0;
     overflow-x: hidden;
     position: relative;
-    background: radial-gradient(circle at 20px 20px, rgba(0, 0, 0, 0.850) 0%, rgba(0, 0, 0, 0.93) 400px);
-}
+    /* degradado por defecto, diagonal de abajo-izq a arriba-der */
+    background: linear-gradient(to top right, rgba(0, 16, 33, 0.95) 0%, rgba(14, 26, 57, 0.95) 100%);
+    transition: background 0.3s ease;
+  }
 
 #content-degrade > section {
     scroll-snap-align: start;
