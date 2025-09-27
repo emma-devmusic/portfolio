@@ -19,3 +19,12 @@
 .img-rotate {
     animation: rotate 180s ease infinite;
 }
+
+.img-container-interactive {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.img-rotate-interactive {
+    animation: rotate 180s ease infinite;
+}

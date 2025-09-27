@@ -1,5 +1,5 @@
 import { ReactTyped } from 'react-typed';
-
+import profileImg from '../../assets/img/emma-profile.png';
 
 
 export const Hero = () => {
@@ -11,7 +11,12 @@ export const Hero = () => {
     }
 
     return (
-        <section id="hero" >
+        <section id="hero" className='flex flex-col justify-center'>
+            <div className='image_box'>
+                <div className="img-hero">
+                    <img src={profileImg} alt="Emma Profile" />
+                </div>
+            </div>
             <div className="hero_box">
                 <div className={`big-logo animate-logo`}>
                     <p className='p-1'>

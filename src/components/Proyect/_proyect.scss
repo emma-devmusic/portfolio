@@ -1,6 +1,6 @@
-#about {
+#project {
     height: 100vh;
-    height: 100%;
+    height: 500px;
     max-height: 800px;
     overflow: hidden;
     .about-box {
@@ -33,7 +33,8 @@
         }
         .about-image {
             position: relative;
-            left: -50px;
+            left: -80px;
+            top: -30px;
             img {
                 border-radius: 8px;
                 border: 1px solid white;
@@ -96,7 +97,8 @@
     }
 }
 @media (max-width:450px) {
-    #about {
+    #project {
+        height: 100%;
         padding: 1rem 0;
         .about-box {
             margin: 1rem 0rem;
@@ -117,5 +119,97 @@
             }
         }
     }
+}
 
+// Project Links Styles
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    &:hover::before {
+        left: 100%;
+    }
+
+    svg {
+        font-size: 1.1rem;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        
+        svg {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.project-link-live {
+    background: linear-gradient(135deg, rgba(0, 153, 255, 0.1), rgba(0, 204, 255, 0.15));
+    color: #00ccff;
+    border-color: rgba(0, 153, 255, 0.3);
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(0, 153, 255, 0.2), rgba(0, 204, 255, 0.25));
+        border-color: rgba(0, 153, 255, 0.5);
+        color: #ffffff;
+    }
+}
+
+.project-link-github {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.15));
+        border-color: rgba(255, 255, 255, 0.4);
+        color: #ffffff;
+    }
+}
+
+// Responsive para project links
+@media (max-width: 768px) {
+    .project-links {
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .project-link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        
+        svg {
+            font-size: 1rem;
+        }
+    }
 }

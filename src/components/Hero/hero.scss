@@ -4,36 +4,46 @@
     height: 100vh;
     display: flex;
     align-items: center;
+
     .hero_box {
         margin: 0 3rem;
+
         .big-logo {
             min-width: 500px;
+            transform: translate(60px, -70px);
+
             p {
                 margin: 0;
                 font-size: 2rem;
                 position: relative;
                 overflow: hidden;
+
                 &:nth-of-type(1) {
                     top: 3rem;
                 }
-                &:nth-of-type(2) { 
+
+                &:nth-of-type(2) {
                     top: -4rem;
                     font-size: 1rem;
                     left: 9rem;
                 }
+
                 span {
                     transform: translateY(50px);
                     display: inline-block;
                 }
             }
+
             .emmanuel {
                 display: flex;
+
                 h1 {
                     margin: 0;
                     font-family: Agrandir;
                     overflow: hidden;
                     transform: translateY(0px);
                     display: inline-block;
+
                     .span-4 {
                         display: inline-block;
                         transform: translateY(150px);
@@ -41,9 +51,11 @@
                         font-size: 7rem;
                     }
                 }
+
                 div {
                     display: inline-block;
                 }
+
                 .span-5 {
                     font-family: Agrandir;
                     position: relative;
@@ -53,23 +65,40 @@
             }
         }
     }
+
+    .img-hero {
+        img {
+            margin-left: 70px;
+            transform: translate(10px, 20px) !important;
+            will-change: transform;
+            filter: drop-shadow(0 4px 12px rgb(255, 255, 255));
+            max-height: 400px;
+            opacity: 0;
+            mask-image: linear-gradient(black 80%, transparent 100%);
+            animation: fadeDropShadow 2s ease .5s;
+            animation-fill-mode: forwards;
+        }
+    }
 }
 
 .animate-logo {
     p {
         .span-1 {
-            animation: slideUp .5s ease ;
+            animation: slideUp .5s ease;
             animation-fill-mode: forwards;
         }
+
         .span-2 {
             animation: slideUp .5s ease .8s;
             animation-fill-mode: forwards;
         }
+
         .span-3 {
             animation: slideUp .5s ease 2.2s;
             animation-fill-mode: forwards;
         }
     }
+
     .emmanuel {
         div .span-5 {
             animation: fadeIn .5s ease-in-out 2.5s;
@@ -79,21 +108,58 @@
 }
 
 @media (min-width: 1368px) {
-    .big-logo {
-        transform: translate(80px, 0%);
-        scale: 1.2;
+    #hero {
+        .hero_box {
+            .big-logo {
+                scale: 1.2;
+            }
+        }
+
+        .image_box {
+            .img-hero {
+                img {
+                    transform: translate(0, 0px) !important;
+                }
+            }
+        }
     }
 }
 
 @media (max-width: 530px) {
-    .big-logo {
-        transform: translate(-80px, 0%);
-            scale: 0.8;
+    #hero {
+        .hero_box {
+            .big-logo {
+                transform: translate(40px, -90px);
+                scale: 0.8;
+            }
+        }
+
+        .image_box {
+            .img-hero {
+                img {
+                    transform: translate(-10px, 30px) !important;
+                    max-height: 300px;
+                }
+            }
+        }
     }
 }
+
 @media (max-width: 390px) {
-    .big-logo {
-        transform: translate(-180px, 0%);
-            scale: 0.6;
+    #hero {
+        .hero_box {
+            .big-logo {
+                scale: 0.6;
+            }
+        }
+
+        .image_box {
+            .img-hero {
+                img {
+                    transform: translate(-10px, 50px) !important;
+                    max-height: 200px !important;
+                }
+            }
+        }
     }
 }
