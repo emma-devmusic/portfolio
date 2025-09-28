@@ -45,8 +45,8 @@ export const Proyect = ({
       >
         <div className="about-text">
           <div className={`about-line`} ref={ref}>
-            <h2 className="text-4xl mr-5 top-0.5 relative text-nowrap">{title}</h2>
-            <div className="icon-blur">
+            <h2 className="text-2xl mr-5 top-0.5 relative text-nowrap">{title}</h2>
+            <div className="icon-blur -top-1 relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="1em"
@@ -62,7 +62,17 @@ export const Proyect = ({
             </div>
             <hr />
           </div>
-          <p className="text-lg mt-2">{description}</p>
+          <p className="text-">{description}</p>
+
+
+
+
+
+
+
+
+
+          
 
           {/* Tech Stack Badges */}
           {techStack && techStack.length > 0 && (
@@ -72,6 +82,7 @@ export const Proyect = ({
                   key={`${tech.name}-${index}`}
                   variant={tech.variant}
                   icon={tech.icon}
+                  size="sm"
                 >
                   {tech.name}
                 </Badge>

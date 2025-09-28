@@ -1,7 +1,6 @@
-import { Hero, Newsletter, Contact, Proyect } from "./components";
+import { Hero, Contact, Proyect, Newsletter } from "./components";
 import code1 from "./assets/img/code-image-1.jpg";
 import { MouseEvent, useRef } from "react";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import circle from "./assets/img/parallax/circle.png";
 import triangle from "./assets/img/parallax/triangle.png";
 
@@ -34,21 +33,18 @@ const App = () => {
 
     // Aplicar movimiento a los contenedores, las imágenes mantienen su rotación
     if (circleRef1.current) {
-      circleRef1.current.style.transform = `translate(${moveX * 0.5}px, ${
-        moveY * 0.5
-      }px)`;
+      circleRef1.current.style.transform = `translate(${moveX * 0.5}px, ${moveY * 0.5
+        }px)`;
     }
 
     if (triangleRef.current) {
-      triangleRef.current.style.transform = `translate(${moveX * -0.3}px, ${
-        moveY * 0.7
-      }px)`;
+      triangleRef.current.style.transform = `translate(${moveX * -0.3}px, ${moveY * 0.7
+        }px)`;
     }
 
     if (circleRef2.current) {
-      circleRef2.current.style.transform = `translate(${moveX * 0.8}px, ${
-        moveY * -0.4
-      }px)`;
+      circleRef2.current.style.transform = `translate(${moveX * 0.8}px, ${moveY * -0.4
+        }px)`;
     }
   };
   return (
@@ -56,100 +52,72 @@ const App = () => {
       <div ref={ref} id="content-degrade">
         {/* <Navbar /> */}
         <div className="page-content">
-          <Parallax pages={3}>
-            <ParallaxLayer speed={0.7} style={{ opacity: 0.5 }}>
-              <div
-                ref={circleRef1}
-                className="img-container-interactive"
-                style={{
-                  marginLeft: "40%",
-                  marginTop: "-10%",
-                  width: "30%",
-                }}
-              >
-                <img
-                  className="img-rotate-interactive"
-                  src={circle}
-                  alt="circulo"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                  }}
-                />
-              </div>
-            </ParallaxLayer>
+          <div
+            ref={circleRef1}
+            className="img-container-interactive absolute"
+            style={{
+              marginLeft: "40%",
+              marginTop: "-10%",
+              width: "30%",
+            }}
+          >
+            <img
+              className="img-rotate-interactive absolute"
+              src={circle}
+              alt="circulo"
+              style={{
+                display: "block",
+                width: "100%",
+              }}
+            />
+          </div>
+          <div
+            ref={triangleRef}
+            className="img-container-interactive absolute"
+            style={{
+              marginLeft: "75%",
+              width: "40%",
+            }}
+          >
+            <img
+              className="img-rotate-interactive absolute"
+              src={triangle}
+              alt="triangulo"
+              style={{
+                display: "block",
+                width: "100%",
+              }}
+            />
+          </div>
+          <div
+            ref={circleRef2}
+            className="img-container-interactive absolute"
+            style={{
+              marginLeft: "0%",
+              marginTop: "10%",
+              width: "40%",
+            }}
+          >
+            <img
+              className="img-rotate-interactive absolute"
+              src={circle}
+              alt="circulo"
+              style={{
+                display: "block",
+                width: "100%",
+              }}
+            />
+          </div>
 
-            <ParallaxLayer offset={0.7} speed={1} style={{ opacity: 0.6 }}>
-              <div
-                ref={triangleRef}
-                className="img-container-interactive"
-                style={{
-                  marginLeft: "75%",
-                  width: "40%",
-                }}
-              >
-                <img
-                  className="img-rotate-interactive"
-                  src={triangle}
-                  alt="triangulo"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                  }}
-                />
-              </div>
-            </ParallaxLayer>
+          <Hero />
+          <Proyect imgBack={code1} imgFront={code1} githubUrl="sdfsdf" projectUrl="" />
+          <Proyect imgBack={code1} imgFront={code1} githubUrl="sdfsdf" projectUrl="" />
+          <Contact />
+          <Newsletter />
 
-            <ParallaxLayer offset={1.5} speed={0.7} style={{ opacity: 0.3 }}>
-              <div
-                ref={circleRef2}
-                className="img-container-interactive"
-                style={{
-                  marginLeft: "0%",
-                  marginTop: "10%",
-                  width: "40%",
-                }}
-              >
-                <img
-                  className="img-rotate-interactive"
-                  src={circle}
-                  alt="circulo"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                  }}
-                />
-              </div>
-            </ParallaxLayer>
-
-            <ParallaxLayer speed={0.2}>
-              <Hero />
-            </ParallaxLayer>
-
-            <ParallaxLayer
-              offset={0.9}
-              speed={.7}
-              style={{ position: "relative" }}
-            >
-              <Proyect imgBack={code1} imgFront={code1} githubUrl="sdfsdf" projectUrl="" />
-            </ParallaxLayer>
-
-            <ParallaxLayer offset={1.2} speed={1}>
-              <Proyect imgBack={code1} imgFront={code1} githubUrl="sdfsdf" projectUrl="" />
-            </ParallaxLayer>
-
-            <ParallaxLayer offset={1.9} speed={1}>
-              <Contact />
-            </ParallaxLayer>
-
-            {/* <ParallaxLayer offset={1.9} speed={1.5} style={{ position: "relative" }}>
-              <Newsletter />
-            </ParallaxLayer> */}
-
-            {/* <ParallaxLayer offset={1.99} speed={1} style={{top: '0px'}}>
+          {/* <ParallaxLayer offset={1.99} speed={1} style={{top: '0px'}}>
                 <Desk />
             </ParallaxLayer> */}
-          </Parallax>
         </div>
       </div>
     </div>
