@@ -4,7 +4,7 @@ export const Contact = () => {
     const { ref, isVisible } = useIntersection();
 
     return (
-        <section id="contact" ref={ref}>
+        <section id="contact" ref={ref} className='reveal'>
             <div className="contact-box">
                 <div className={`contact-content ${isVisible && 'animate-about'}`}>
                     <div className="contact-header">

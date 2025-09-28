@@ -16,6 +16,7 @@ interface Props {
   techStack?: TechStack[];
   projectUrl?: string;
   githubUrl?: string;
+  className?: string;
 }
 
 const defaultTechStack: TechStack[] = [
@@ -33,17 +34,18 @@ export const Proyect = ({
   techStack = defaultTechStack,
   projectUrl,
   githubUrl,
+  className = ''
 }: Props) => {
   const { ref, isVisible } = useIntersection();
 
   return (
-    <section id="project" className="">
+    <section id="project" className={className}>
       <div
         className={`about-box ${
           isVisible && "animate-about"
         } px-4 max-w-[1200px] mx-auto`}
       >
-        <div className="about-text">
+        <div className="about-text max-w-lg">
           <div className={`about-line`} ref={ref}>
             <h2 className="text-2xl mr-5 top-0.5 relative text-nowrap">{title}</h2>
             <div className="icon-blur -top-1 relative">
@@ -62,18 +64,7 @@ export const Proyect = ({
             </div>
             <hr />
           </div>
-          <p className="text-">{description}</p>
-
-
-
-
-
-
-
-
-
-          
-
+          <p className="text-md">{description}</p>
           {/* Tech Stack Badges */}
           {techStack && techStack.length > 0 && (
             <div className="badge-group">

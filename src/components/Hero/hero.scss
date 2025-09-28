@@ -68,11 +68,14 @@
 
     .img-hero {
         img {
+            border-radius: 100%;
+            background-color: rgba(220, 220, 220, 0.052);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             margin-left: 70px;
             transform: translate(10px, 20px) !important;
             will-change: transform;
             filter: drop-shadow(0 4px 12px rgb(255, 255, 255));
-            max-height: 400px;
+            max-height: 300px;
             opacity: 0;
             mask-image: linear-gradient(black 80%, transparent 100%);
             animation: fadeDropShadow 2s ease .5s;
@@ -107,21 +110,9 @@
     }
 }
 
-@media (min-width: 1368px) {
+@media (max-width: 1366px) {
     #hero {
-        .hero_box {
-            .big-logo {
-                scale: 1.2;
-            }
-        }
-
-        .image_box {
-            .img-hero {
-                img {
-                    transform: translate(0, 0px) !important;
-                }
-            }
-        }
+        scale:80%;
     }
 }
 

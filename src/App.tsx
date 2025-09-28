@@ -1,8 +1,14 @@
-import { Hero, Contact, Proyect, Newsletter } from "./components";
+import {
+  Hero,
+  Contact,
+  Proyect,
+  Newsletter,
+  FloatingCircle1,
+  FloatingTriangle,
+  FloatingCircle2,
+} from "./components";
 import code1 from "./assets/img/code-image-1.jpg";
 import { MouseEvent, useRef } from "react";
-import circle from "./assets/img/parallax/circle.png";
-import triangle from "./assets/img/parallax/triangle.png";
 
 const App = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,87 +39,54 @@ const App = () => {
 
     // Aplicar movimiento a los contenedores, las imágenes mantienen su rotación
     if (circleRef1.current) {
-      circleRef1.current.style.transform = `translate(${moveX * 0.5}px, ${moveY * 0.5
-        }px)`;
+      circleRef1.current.style.transform = `translate(${moveX * 0.5}px, ${
+        moveY * 0.5
+      }px)`;
     }
 
     if (triangleRef.current) {
-      triangleRef.current.style.transform = `translate(${moveX * -0.3}px, ${moveY * 0.7
-        }px)`;
+      triangleRef.current.style.transform = `translate(${moveX * -0.3}px, ${
+        moveY * 0.7
+      }px)`;
     }
 
     if (circleRef2.current) {
-      circleRef2.current.style.transform = `translate(${moveX * 0.8}px, ${moveY * -0.4
-        }px)`;
+      circleRef2.current.style.transform = `translate(${moveX * 0.8}px, ${
+        moveY * -0.4
+      }px)`;
     }
   };
   return (
-    <div onMouseMove={handleMouse} className="app">
-      <div ref={ref} id="content-degrade">
+    <div onMouseMove={handleMouse} className="app relative h-screen">
+      <div ref={ref} id="content-degrade" className="relative h-screen">
         {/* <Navbar /> */}
-        <div className="page-content">
-          <div
-            ref={circleRef1}
-            className="img-container-interactive absolute"
-            style={{
-              marginLeft: "40%",
-              marginTop: "-10%",
-              width: "30%",
-            }}
-          >
-            <img
-              className="img-rotate-interactive absolute"
-              src={circle}
-              alt="circulo"
-              style={{
-                display: "block",
-                width: "100%",
-              }}
-            />
+        <div className="relative h-screen">
+          <div className="flex flex-col lg:flex-row relative">
+            <div className="mx-auto max-[1366px]:w-full max-[1366px]:max-w-[400px] max-w-[500px] lg:sticky w-fit top-0 h-fit basis-1/3">
+              <FloatingTriangle ref={triangleRef} />
+              <FloatingCircle1 ref={circleRef1} />
+              <FloatingCircle2 ref={circleRef2} />
+              <Hero />
+            </div>
+            <div className="w-full">
+              <Proyect
+                imgBack={code1}
+                imgFront={code1}
+                githubUrl="sdfsdf"
+                projectUrl=""
+                className="reveal"
+              />
+              <Proyect
+                imgBack={code1}
+                imgFront={code1}
+                githubUrl="sdfsdf"
+                projectUrl=""
+                className="reveal"
+              />
+              <Contact />
+              <Newsletter />
+            </div>
           </div>
-          <div
-            ref={triangleRef}
-            className="img-container-interactive absolute"
-            style={{
-              marginLeft: "75%",
-              width: "40%",
-            }}
-          >
-            <img
-              className="img-rotate-interactive absolute"
-              src={triangle}
-              alt="triangulo"
-              style={{
-                display: "block",
-                width: "100%",
-              }}
-            />
-          </div>
-          <div
-            ref={circleRef2}
-            className="img-container-interactive absolute"
-            style={{
-              marginLeft: "0%",
-              marginTop: "10%",
-              width: "40%",
-            }}
-          >
-            <img
-              className="img-rotate-interactive absolute"
-              src={circle}
-              alt="circulo"
-              style={{
-                display: "block",
-                width: "100%",
-              }}
-            />
-          </div>
-
-          <Hero />
-          <Proyect imgBack={code1} imgFront={code1} githubUrl="sdfsdf" projectUrl="" />
-          <Proyect imgBack={code1} imgFront={code1} githubUrl="sdfsdf" projectUrl="" />
-          <Contact />
-          <Newsletter />
 
           {/* <ParallaxLayer offset={1.99} speed={1} style={{top: '0px'}}>
                 <Desk />

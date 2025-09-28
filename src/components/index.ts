@@ -6,3 +6,5 @@ export * from './Proyect/Proyect';
 export * from './Desk/Desk';
 export * from './Contact/Contact';
 export * from './Badge';
+export * from './AnimatedImage';
+export * from './FloatingElements';

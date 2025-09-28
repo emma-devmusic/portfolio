@@ -14,8 +14,16 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 108, 255, 0.2) transparent;
+}
+
 html {
   // scroll-snap-type: y mandatory;
+  body {
+    height: 100vh;
+  }
 }
 
 ul {

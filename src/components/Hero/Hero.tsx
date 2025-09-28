@@ -11,13 +11,13 @@ export const Hero = () => {
     }
 
     return (
-        <section id="hero" className='flex flex-col justify-center'>
-            <div className='image_box'>
+        <section id="hero" className='flex flex-col justify-center !w-full'>
+            <div className='image_box w-fit'>
                 <div className="img-hero">
                     <img src={profileImg} alt="Emma Profile" />
                 </div>
             </div>
-            <div className="hero_box">
+            <div className="hero_box w-fit !m-0">
                 <div className={`big-logo animate-logo`}>
                     <p className='p-1'>
                         <span className="span-1">Hola!</span> <span className="span-2">Soy</span>
