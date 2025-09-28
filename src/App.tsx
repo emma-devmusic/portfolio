@@ -84,7 +84,7 @@ const App = () => {
       <div ref={ref} id="content-degrade" className={`relative h-screen ${showContent ? 'background-fade-in' : 'background-hidden'}`}>
         <div className="relative h-screen">
           <div className="flex flex-col lg:flex-row relative">
-            <div className={`mx-auto max-[1366px]:w-full max-[1366px]:max-w-[400px] max-w-[500px] lg:sticky w-fit top-0 h-fit basis-1/3 ${showContent ? 'content-slide-in-left' : 'content-hidden'}`}>
+            <div className={`mx-auto max-[1366px]:w-full max-[1366px]:max-w-[400px] max-w-[500px] lg:sticky w-fit top-0 h-fit basis-1/3 ${showContent ? '' : 'content-hidden'}`}>
               <Hero />
             </div>
             <div className={`w-full ${showContent ? 'content-slide-in-right' : 'content-hidden'}`}>
