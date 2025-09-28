@@ -1,0 +1,336 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #000000 0%, #001122 50%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  
+  &.fade-out {
+    animation: fadeOut 0.8s ease-out forwards;
+  }
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.loading-logo {
+  margin-bottom: 1rem;
+  
+  .logo-text {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #00ccff;
+    text-shadow: 0 0 20px rgba(0, 204, 255, 0.5);
+    animation: logoGlow 2s ease-in-out infinite alternate;
+    
+    .bracket {
+      opacity: 0;
+      animation: bracketAppear 2s ease-out forwards;
+      
+      &:first-child {
+        animation-delay: 0.5s;
+      }
+      
+      &:last-child {
+        animation-delay: 1s;
+      }
+    }
+    
+    .slash {
+      opacity: 0;
+      animation: slashRotate 1s ease-out 0.75s forwards;
+      display: inline-block;
+      transform-origin: center;
+    }
+  }
+}
+
+.loading-welcome {
+  text-align: center;
+  opacity: 0;
+  animation: textFadeIn 1s ease-out 1.5s forwards;
+  
+  h1 {
+    font-family: 'Agrandir', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: white;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.1em;
+  }
+  
+  p {
+    font-family: 'Kollektif', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+}
+
+.loading-progress {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: progressFadeIn 0.5s ease-out 2s forwards;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 204, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0099ff, #00ccff);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+}
+
+.progress-text {
+  font-family: 'Kollektif', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: dotsFadeIn 0.5s ease-out 2.5s forwards;
+  
+  span {
+    width: 8px;
+    height: 8px;
+    background: #00ccff;
+    border-radius: 50%;
+    animation: dotPulse 1.5s ease-in-out infinite;
+    
+    &:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+  }
+}
+
+.loading-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decoration-circle {
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(0, 204, 255, 0.2);
+  border-radius: 50%;
+  animation: decorationRotate 20s linear infinite;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(0, 204, 255, 0.1);
+    border-radius: 50%;
+    animation: decorationRotate 15s linear infinite reverse;
+  }
+}
+
+.decoration-line {
+  position: absolute;
+  bottom: 25%;
+  left: 10%;
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 204, 255, 0.5), transparent);
+  animation: lineGlow 3s ease-in-out infinite;
+}
+
+// Animations
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes logoGlow {
+  0% { text-shadow: 0 0 20px rgba(0, 204, 255, 0.5); }
+  100% { text-shadow: 0 0 30px rgba(0, 204, 255, 0.8), 0 0 40px rgba(0, 204, 255, 0.3); }
+}
+
+@keyframes bracketAppear {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slashRotate {
+  0% { 
+    opacity: 0; 
+    transform: rotate(-90deg) scale(0); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: rotate(0deg) scale(1); 
+  }
+}
+
+@keyframes textFadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes progressFadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes dotsFadeIn {
+  0% { 
+    opacity: 0; 
+  }
+  100% { 
+    opacity: 1; 
+  }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: scale(1.2); 
+    opacity: 1; 
+  }
+}
+
+@keyframes decorationRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lineGlow {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scaleX(1); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scaleX(1.1); 
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .loading-logo .logo-text {
+    font-size: 3rem;
+  }
+  
+  .loading-welcome h1 {
+    font-size: 2rem;
+  }
+  
+  .loading-progress {
+    width: 250px;
+  }
+  
+  .decoration-circle {
+    width: 150px;
+    height: 150px;
+    top: 15%;
+    right: 10%;
+  }
+  
+  .decoration-line {
+    width: 100px;
+    left: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-logo .logo-text {
+    font-size: 2.5rem;
+  }
+  
+  .loading-welcome h1 {
+    font-size: 1.8rem;
+  }
+  
+  .loading-welcome p {
+    font-size: 1rem;
+  }
+  
+  .loading-progress {
+    width: 200px;
+  }
+}

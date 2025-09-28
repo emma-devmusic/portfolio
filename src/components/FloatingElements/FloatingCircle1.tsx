@@ -9,8 +9,8 @@ export const FloatingCircle1 = forwardRef<HTMLDivElement>((_, ref) => {
       src={circle}
       alt="circulo flotante 1"
       width="30%"
-      marginLeft="40%"
-      marginTop="-10%"
+      marginLeft="20%"
+      marginTop="10%"
       className="floating-circle-1"
     />
   );

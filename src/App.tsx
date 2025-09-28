@@ -6,15 +6,26 @@ import {
   FloatingCircle1,
   FloatingTriangle,
   FloatingCircle2,
+  Loading,
 } from "./components";
 import code1 from "./assets/img/code-image-1.jpg";
-import { MouseEvent, useRef } from "react";
+import { MouseEvent, useRef, useState } from "react";
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const circleRef1 = useRef<HTMLDivElement>(null);
   const triangleRef = useRef<HTMLDivElement>(null);
   const circleRef2 = useRef<HTMLDivElement>(null);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    // Pequeño delay para que la transición sea más suave
+    setTimeout(() => {
+      setShowContent(true);
+    }, 100);
+  };
 
   const handleMouse = (event: MouseEvent) => {
     const xNorm = event.clientX / window.innerWidth; // 0 (izq) → 1 (der)
@@ -22,7 +33,7 @@ const App = () => {
 
     // Calcular un ángulo entre 0° (horizontal) y 180° (horizontal invertido),
     // combinando x e y para que, al subir y mover a la derecha, bote hacia arriba-derecha.
-    const angle = (xNorm + (1 - yNorm)) * 90;
+    const angle = (xNorm + (1 - yNorm)) * 45;
 
     // Calcular movimiento para las imágenes (más sutil)
     const moveX = (xNorm - 0.5) * 40; // Movimiento horizontal (-10px a +10px)
@@ -56,19 +67,27 @@ const App = () => {
       }px)`;
     }
   };
+
+  // Mostrar pantalla de carga si está cargando
+  if (isLoading) {
+    return <Loading onLoadingComplete={handleLoadingComplete} />;
+  }
+
   return (
-    <div onMouseMove={handleMouse} className="app relative h-screen">
-      <div ref={ref} id="content-degrade" className="relative h-screen">
-        {/* <Navbar /> */}
+    <div
+      onMouseMove={handleMouse}
+      className={`app relative h-screen overflow-x-hidden ${showContent ? 'app-fade-in' : 'app-loading'}`}
+    >
+      <FloatingTriangle ref={triangleRef} />
+      <FloatingCircle1 ref={circleRef1} />
+      <FloatingCircle2 ref={circleRef2} />
+      <div ref={ref} id="content-degrade" className={`relative h-screen ${showContent ? 'background-fade-in' : 'background-hidden'}`}>
         <div className="relative h-screen">
           <div className="flex flex-col lg:flex-row relative">
-            <div className="mx-auto max-[1366px]:w-full max-[1366px]:max-w-[400px] max-w-[500px] lg:sticky w-fit top-0 h-fit basis-1/3">
-              <FloatingTriangle ref={triangleRef} />
-              <FloatingCircle1 ref={circleRef1} />
-              <FloatingCircle2 ref={circleRef2} />
+            <div className={`mx-auto max-[1366px]:w-full max-[1366px]:max-w-[400px] max-w-[500px] lg:sticky w-fit top-0 h-fit basis-1/3 ${showContent ? 'content-slide-in-left' : 'content-hidden'}`}>
               <Hero />
             </div>
-            <div className="w-full">
+            <div className={`w-full ${showContent ? 'content-slide-in-right' : 'content-hidden'}`}>
               <Proyect
                 imgBack={code1}
                 imgFront={code1}
@@ -87,10 +106,6 @@ const App = () => {
               <Newsletter />
             </div>
           </div>
-
-          {/* <ParallaxLayer offset={1.99} speed={1} style={{top: '0px'}}>
-                <Desk />
-            </ParallaxLayer> */}
         </div>
       </div>
     </div>

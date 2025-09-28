@@ -74,6 +74,7 @@
             margin-left: 70px;
             transform: translate(10px, 20px) !important;
             will-change: transform;
+            backdrop-filter: blur(2px);
             filter: drop-shadow(0 4px 12px rgb(255, 255, 255));
             max-height: 300px;
             opacity: 0;
