@@ -8,5 +8,11 @@
     font-family: 'Kollektif';
     src: url('../assets/fonts/kollektif/Kollektif.ttf') format('truetype');
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Kollektif';
+    src: url('../assets/fonts/kollektif/Kollektif-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
 }

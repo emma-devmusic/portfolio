@@ -1,0 +1,103 @@
+#welcome-visitor {
+    padding: 3rem 0 2rem;
+}
+
+.welcome-card {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: linear-gradient(135deg, rgba(8, 22, 48, 0.75), rgba(6, 16, 36, 0.92));
+    border-radius: 16px;
+    padding: clamp(1.2rem, 2.2vw, 2.2rem);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    &.animate-about {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    h1 {
+        margin: 0.45rem 0 0;
+        font-family: 'Agrandir', sans-serif;
+        font-size: clamp(1.7rem, 3vw, 2.6rem);
+        line-height: 1.15;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    p {
+        max-width: 72ch;
+        margin: 1rem auto 0;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+        line-height: 1.7;
+    }
+
+}
+
+.welcome-strong {
+    font-family: 'Kollektif', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.tech-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #ffffff;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tech-inline-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.05em;
+    height: 1.05em;
+    color: #00ccff;
+    transform: translateY(1px);
+}
+
+.welcome-kicker {
+    display: inline-flex;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgba(0, 204, 255, 0.35);
+    border-radius: 999px;
+    color: #00ccff;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+}
+
+.welcome-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid rgba(0, 153, 255, 0.35);
+    background: linear-gradient(135deg, rgba(0, 153, 255, 0.35), rgba(0, 204, 255, 0.25));
+    transition: all 0.25s ease;
+
+    &:hover {
+        border-color: rgba(0, 204, 255, 0.8);
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 640px) {
+    #welcome-visitor {
+        padding-top: 1.5rem;
+    }
+
+    .welcome-card {
+        border-radius: 12px;
+    }
+}

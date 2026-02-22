@@ -2,7 +2,7 @@ import {
   Hero,
   Contact,
   Proyect,
-  Newsletter,
+  WelcomeVisitor,
   FloatingCircle1,
   FloatingTriangle,
   FloatingCircle2,
@@ -76,34 +76,47 @@ const App = () => {
   return (
     <div
       onMouseMove={handleMouse}
-      className={`app relative h-screen overflow-x-hidden ${showContent ? 'app-fade-in' : 'app-loading'}`}
+      className={`app relative h-screen overflow-x-hidden ${showContent ? "app-fade-in" : "app-loading"}`}
     >
       <FloatingTriangle ref={triangleRef} />
       <FloatingCircle1 ref={circleRef1} />
       <FloatingCircle2 ref={circleRef2} />
-      <div ref={ref} id="content-degrade" className={`relative h-screen ${showContent ? 'background-fade-in' : 'background-hidden'}`}>
+      <div
+        ref={ref}
+        id="content-degrade"
+        className={`relative h-screen ${showContent ? "background-fade-in" : "background-hidden"}`}
+      >
         <div className="relative h-screen">
-          <div className="flex flex-col lg:flex-row relative">
-            <div className={`mx-auto max-[1366px]:w-full max-[1366px]:max-w-[400px] max-w-[500px] lg:sticky w-fit top-0 h-fit basis-1/3 ${showContent ? '' : 'content-hidden'}`}>
+          <div className="flex max-[1199px]:flex-col relative">
+            <div
+              className={`mx-auto max-[1366px]:w-full max-[1366px]:max-w-[400px] max-w-[500px] min-[1200px]:sticky w-fit top-0 h-fit basis-1/3 ${showContent ? "" : "content-hidden"}`}
+            >
               <Hero />
             </div>
-            <div className={`w-full ${showContent ? 'content-slide-in-right' : 'content-hidden'}`}>
-              <Proyect
-                imgBack={code1}
-                imgFront={code1}
-                githubUrl="sdfsdf"
-                projectUrl=""
-                className="reveal"
-              />
-              <Proyect
-                imgBack={code1}
-                imgFront={code1}
-                githubUrl="sdfsdf"
-                projectUrl=""
-                className="reveal"
-              />
-              <Contact />
-              <Newsletter />
+            <div
+              className={`max-w-5xl mx-auto w-full ${showContent ? "content-slide-in-right" : "content-hidden"}`}
+            >
+              <div className="max-w-4xl mx-auto px-4">
+                <WelcomeVisitor className="reveal" />
+                <div className="space-y-8">
+                  <Proyect
+                    imgBack={code1}
+                    imgFront={code1}
+                    githubUrl="sdfsdf"
+                    projectUrl=""
+                    className="reveal"
+                  />
+                  <Proyect
+                    imgBack={code1}
+                    imgFront={code1}
+                    githubUrl="sdfsdf"
+                    projectUrl=""
+                    className="reveal"
+                  />
+                </div>
+                <Contact />
+                {/* <Newsletter /> */}
+              </div>
             </div>
           </div>
         </div>

@@ -8,12 +8,6 @@ import { useRef } from "react"
 
 export const Desk = () => {
     const parallax = useRef<IParallax>(null!)
-
-    const clg = () => {
-        if (parallax.current) {
-          console.log(parallax.current.content)
-        }
-      }
     return (
         <div id="desk">
             <Parallax 

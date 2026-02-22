@@ -9,3 +9,5 @@ export * from './Badge';
 export * from './AnimatedImage';
 export * from './FloatingElements';
 export * from './Loading';
+export * from './ProjectLinks/ProjectLinks';
+export * from './WelcomeVisitor/WelcomeVisitor';

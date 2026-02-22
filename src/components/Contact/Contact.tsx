@@ -8,12 +8,13 @@ export const Contact = () => {
       <div className="contact-box">
         <div className={`contact-content ${isVisible && "animate-about"}`}>
           <div className="contact-header">
-            <div className="icon-blur">
+            <div className="icon-blur relative -top-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="1em"
                 height="1em"
                 viewBox="0 0 24 24"
+                className="relative -right-4 top-4.5"
               >
                 <path
                   fill="currentColor"
@@ -22,7 +23,7 @@ export const Contact = () => {
               </svg>
               <span></span>
             </div>
-            <h2>
+            <h2 className="md:!text-4xl">
               Hablemos de tu <br />
               <strong>próximo proyecto</strong>
             </h2>
