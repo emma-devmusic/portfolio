@@ -46,6 +46,10 @@
     will-change: transform;
 }
 
+.floating-triangle {
+    transition: none;
+}
+
 .img-rotate-interactive {
     animation: rotate 180s ease infinite;
 }
@@ -114,12 +118,14 @@
 @keyframes floatingElementsAppear {
     0% {
         opacity: 0;
-        transform: scale(0.8) translateY(30px);
+        scale: 0.8;
+        translate: 0 30px;
     }
 
     100% {
         opacity: 1;
-        transform: scale(1) translateY(0);
+        scale: 1;
+        translate: 0 0;
     }
 }
 

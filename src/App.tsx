@@ -12,7 +12,7 @@ import simpleBarDesktop from "./assets/img/projects/simplebar-desktop.png";
 import simpleBarPhone from "./assets/img/projects/simplebar-phone.webp";
 import reserviaDesktop from "./assets/img/projects/reservia-desktop.png";
 import reserviaPhone from "./assets/img/projects/reservia-phone.png";
-import { MouseEvent, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,11 +21,70 @@ const App = () => {
   const circleRef1 = useRef<HTMLDivElement>(null);
   const triangleRef = useRef<HTMLDivElement>(null);
   const circleRef2 = useRef<HTMLDivElement>(null);
+  const trianglePointerRef = useRef({ x: 0, y: 0 });
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
     setShowContent(true);
   };
+
+  useEffect(() => {
+    if (!showContent) {
+      return;
+    }
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reducedMotion) {
+      return;
+    }
+
+    const scrollContainer = ref.current;
+
+    if (!scrollContainer) {
+      return;
+    }
+
+    let animationFrame = 0;
+    let targetScroll = scrollContainer.scrollTop;
+    let currentScroll = targetScroll;
+    let currentPointerX = trianglePointerRef.current.x;
+    let currentPointerY = trianglePointerRef.current.y;
+
+    const handleScroll = () => {
+      targetScroll = scrollContainer.scrollTop;
+    };
+
+    const animateTriangle = () => {
+      currentScroll += (targetScroll - currentScroll) * 0.075;
+      currentPointerX +=
+        (trianglePointerRef.current.x - currentPointerX) * 0.09;
+      currentPointerY +=
+        (trianglePointerRef.current.y - currentPointerY) * 0.09;
+
+      if (triangleRef.current) {
+        const scrollX = Math.sin(currentScroll * 0.0014) * 52;
+        const scrollY = currentScroll * 0.1;
+        const rotation = currentScroll * 0.009;
+
+        triangleRef.current.style.transform = `translate3d(${
+          currentPointerX + scrollX
+        }px, ${currentPointerY + scrollY}px, 0) rotate(${rotation}deg)`;
+      }
+
+      animationFrame = window.requestAnimationFrame(animateTriangle);
+    };
+
+    scrollContainer.addEventListener("scroll", handleScroll, { passive: true });
+    animationFrame = window.requestAnimationFrame(animateTriangle);
+
+    return () => {
+      scrollContainer.removeEventListener("scroll", handleScroll);
+      window.cancelAnimationFrame(animationFrame);
+    };
+  }, [showContent]);
 
   const handleMouse = (event: MouseEvent) => {
     const xNorm = event.clientX / window.innerWidth; // 0 (izq) → 1 (der)
@@ -55,11 +114,10 @@ const App = () => {
       }px)`;
     }
 
-    if (triangleRef.current) {
-      triangleRef.current.style.transform = `translate(${moveX * -0.3}px, ${
-        moveY * 0.7
-      }px)`;
-    }
+    trianglePointerRef.current = {
+      x: moveX * -0.3,
+      y: moveY * 0.7,
+    };
 
     if (circleRef2.current) {
       circleRef2.current.style.transform = `translate(${moveX * 0.8}px, ${
@@ -76,7 +134,7 @@ const App = () => {
   return (
     <div
       onMouseMove={handleMouse}
-      className={`app relative h-screen overflow-x-hidden ${showContent ? "app-fade-in" : "app-loading"}`}
+      className={`app relative h-screen overflow-hidden ${showContent ? "app-fade-in" : "app-loading"}`}
     >
       <FloatingTriangle ref={triangleRef} />
       <FloatingCircle1 ref={circleRef1} />
@@ -89,7 +147,7 @@ const App = () => {
         <div className="relative h-screen">
           <div className="flex max-[1199px]:flex-col relative">
             <div
-              className={`mx-auto max-[1366px]:w-full max-[1366px]:max-w-[400px] max-w-[500px] min-[1200px]:sticky w-fit top-0 h-fit basis-1/3 ${showContent ? "" : "content-hidden"}`}
+              className={`mx-auto max-[1366px]:w-full max-[1366px]:max-w-100 max-[1199px]:max-h-125 max-w-125 min-[1200px]:sticky w-fit top-0 h-fit basis-1/3 ${showContent ? "" : "content-hidden"}`}
             >
               <Hero />
             </div>
