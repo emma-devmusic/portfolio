@@ -8,7 +8,10 @@ import {
   FloatingCircle2,
   Loading,
 } from "./components";
-import code1 from "./assets/img/code-image-1.jpg";
+import simpleBarDesktop from "./assets/img/projects/simplebar-desktop.png";
+import simpleBarPhone from "./assets/img/projects/simplebar-phone.webp";
+import reserviaDesktop from "./assets/img/projects/reservia-desktop.png";
+import reserviaPhone from "./assets/img/projects/reservia-phone.png";
 import { MouseEvent, useRef, useState } from "react";
 
 const App = () => {
@@ -21,10 +24,7 @@ const App = () => {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    // Pequeño delay para que la transición sea más suave
-    setTimeout(() => {
-      setShowContent(true);
-    }, 100);
+    setShowContent(true);
   };
 
   const handleMouse = (event: MouseEvent) => {
@@ -100,17 +100,21 @@ const App = () => {
                 <WelcomeVisitor className="reveal" />
                 <div className="space-y-8">
                   <Proyect
-                    imgBack={code1}
-                    imgFront={code1}
-                    githubUrl="sdfsdf"
-                    projectUrl=""
+                    title="SimpleBar"
+                    description="Plataforma SaaS de gestión gastronómica que unifica POS, menú QR, pedidos, caja, mesas, productos y sucursales en una experiencia web responsive."
+                    imgBack={simpleBarDesktop}
+                    imgFront={simpleBarPhone}
+                    imageAlt="Sitio y panel de gestión gastronómica de SimpleBar"
+                    projectUrl="https://simplebar.net/"
                     className="reveal"
                   />
                   <Proyect
-                    imgBack={code1}
-                    imgFront={code1}
-                    githubUrl="sdfsdf"
-                    projectUrl=""
+                    title="ReservIA"
+                    description="Asistente con inteligencia artificial para gestionar reservas por conversación, consultar disponibilidad en tiempo real y operar el calendario del negocio mediante texto o voz."
+                    imgBack={reserviaDesktop}
+                    imgFront={reserviaPhone}
+                    imageAlt="Asistente conversacional para gestión de reservas ReservIA"
+                    projectUrl="https://reservaicclistg.ding.com.ar/"
                     className="reveal"
                   />
                 </div>

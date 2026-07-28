@@ -1,336 +1,330 @@
 .loading-screen {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #000000 0%, #001122 50%, #000000 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 0;
   z-index: 9999;
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
   overflow: hidden;
-  
-  &.fade-out {
-    animation: fadeOut 0.8s ease-out forwards;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(0, 153, 255, 0.1), transparent 32rem),
+    linear-gradient(to top right, rgba(0, 16, 33, 0.98) 0%, rgba(14, 26, 57, 0.98) 100%);
+  opacity: 1;
+  transition:
+    opacity 0.42s ease,
+    visibility 0.42s ease;
+
+  &--exiting {
+    visibility: hidden;
+    opacity: 0;
+
+    .loading-content {
+      transform: translateY(-8px) scale(0.98);
+    }
+  }
+}
+
+.loading-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(88, 188, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 188, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+}
+
+.loading-glow {
+  position: absolute;
+  width: 24rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(0, 204, 255, 0.12);
+  border-radius: 50%;
+  filter: blur(1px);
+
+  &::before {
+    position: absolute;
+    inset: 2rem;
+    content: "";
+    border: 1px solid rgba(117, 79, 255, 0.1);
+    border-radius: inherit;
+  }
+
+  &--one {
+    top: -12rem;
+    right: -7rem;
+    animation: loader-orbit 16s linear infinite;
+  }
+
+  &--two {
+    bottom: -15rem;
+    left: -9rem;
+    animation: loader-orbit 20s linear infinite reverse;
   }
 }
 
 .loading-content {
+  position: relative;
+  z-index: 2;
   display: flex;
+  width: min(22rem, calc(100vw - 3rem));
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  z-index: 2;
-  position: relative;
+  transition: transform 0.42s ease;
+}
+
+.loading-eyebrow {
+  margin: 0 0 1.4rem;
+  color: rgba(198, 225, 244, 0.62);
+  font-family: "Kollektif", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.34em;
+  opacity: 0;
+  animation: loader-reveal 0.5s ease 0.1s forwards;
 }
 
 .loading-logo {
-  margin-bottom: 1rem;
-  
+  position: relative;
+  display: grid;
+  width: 7.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(0, 204, 255, 0.22);
+  border-radius: 1.8rem;
+  background: linear-gradient(145deg, rgba(8, 27, 49, 0.82), rgba(4, 12, 23, 0.55));
+  box-shadow:
+    0 0 0 8px rgba(0, 153, 255, 0.025),
+    0 24px 80px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: rotate(45deg) scale(0.85);
+  opacity: 0;
+  animation: loader-mark-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s forwards;
+
+  &::after {
+    position: absolute;
+    inset: -1px;
+    content: "";
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(0, 204, 255, 0.32), transparent 38%, transparent 62%, rgba(117, 79, 255, 0.2));
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    padding: 1px;
+  }
+
   .logo-text {
-    font-family: 'Agrandir', sans-serif;
-    font-size: 4rem;
+    color: #35d8ff;
+    font-family: "Courier New", monospace;
+    font-size: 2.65rem;
     font-weight: 700;
-    color: #00ccff;
-    text-shadow: 0 0 20px rgba(0, 204, 255, 0.5);
-    animation: logoGlow 2s ease-in-out infinite alternate;
-    
-    .bracket {
-      opacity: 0;
-      animation: bracketAppear 2s ease-out forwards;
-      
-      &:first-child {
-        animation-delay: 0.5s;
-      }
-      
-      &:last-child {
-        animation-delay: 1s;
-      }
-    }
-    
-    .slash {
-      opacity: 0;
-      animation: slashRotate 1s ease-out 0.75s forwards;
-      display: inline-block;
-      transform-origin: center;
-    }
+    letter-spacing: -0.18em;
+    text-shadow: 0 0 22px rgba(0, 204, 255, 0.55);
+    transform: rotate(-45deg) translateX(-0.08em);
+  }
+
+  .bracket,
+  .slash {
+    display: inline-block;
+  }
+
+  .bracket:first-child {
+    animation: loader-bracket-left 0.45s ease 0.45s both;
+  }
+
+  .bracket:last-child {
+    animation: loader-bracket-right 0.45s ease 0.45s both;
+  }
+
+  .slash {
+    color: #ffffff;
+    animation: loader-slash 0.5s ease 0.5s both;
   }
 }
 
-.loading-welcome {
-  text-align: center;
+.loading-copy {
+  margin: 1.8rem 0 1.2rem;
+  color: rgba(235, 247, 255, 0.88);
+  font-family: "Agrandir", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
   opacity: 0;
-  animation: textFadeIn 1s ease-out 1.5s forwards;
-  
-  h1 {
-    font-family: 'Agrandir', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: white;
-    margin: 0 0 0.5rem 0;
-    letter-spacing: 0.1em;
-  }
-  
-  p {
-    font-family: 'Kollektif', sans-serif;
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-    letter-spacing: 0.05em;
-  }
+  animation: loader-reveal 0.5s ease 0.5s forwards;
 }
 
 .loading-progress {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  width: 100%;
   opacity: 0;
-  animation: progressFadeIn 0.5s ease-out 2s forwards;
+  animation: loader-reveal 0.45s ease 0.65s forwards;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+  color: rgba(184, 211, 229, 0.62);
+  font-family: "Kollektif", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  span:last-child {
+    color: #35d8ff;
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 .progress-bar {
-  width: 100%;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  overflow: hidden;
   position: relative;
-  
-  &::before {
-    content: '';
+  height: 3px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.08);
+
+  &::after {
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 204, 255, 0.4), transparent);
-    animation: shimmer 2s infinite;
+    inset: 0;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+    transform: translateX(-100%);
+    animation: loader-shimmer 1.4s ease-in-out infinite;
   }
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #0099ff, #00ccff);
-  border-radius: 2px;
-  transition: width 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0075ff, #24d9ff 70%, #a56cff);
+  box-shadow: 0 0 18px rgba(36, 217, 255, 0.55);
+  transition: width 0.12s linear;
 }
 
-.progress-text {
-  font-family: 'Kollektif', sans-serif;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
-}
-
-.loading-dots {
-  display: flex;
-  gap: 0.5rem;
-  opacity: 0;
-  animation: dotsFadeIn 0.5s ease-out 2.5s forwards;
-  
-  span {
-    width: 8px;
-    height: 8px;
-    background: #00ccff;
-    border-radius: 50%;
-    animation: dotPulse 1.5s ease-in-out infinite;
-    
-    &:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-    
-    &:nth-child(3) {
-      animation-delay: 0.6s;
-    }
-  }
-}
-
-.loading-decorations {
+.loading-corners {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 1.5rem;
   pointer-events: none;
-  z-index: 1;
-}
 
-.decoration-circle {
-  position: absolute;
-  top: 20%;
-  right: 15%;
-  width: 200px;
-  height: 200px;
-  border: 1px solid rgba(0, 204, 255, 0.2);
-  border-radius: 50%;
-  animation: decorationRotate 20s linear infinite;
-  
-  &::before {
-    content: '';
+  span {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 1px solid rgba(0, 204, 255, 0.1);
-    border-radius: 50%;
-    animation: decorationRotate 15s linear infinite reverse;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-color: rgba(83, 195, 255, 0.22);
+    border-style: solid;
+  }
+
+  span:first-child {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+  }
+
+  span:last-child {
+    right: 0;
+    bottom: 0;
+    border-width: 0 1px 1px 0;
   }
 }
 
-.decoration-line {
-  position: absolute;
-  bottom: 25%;
-  left: 10%;
-  width: 150px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 204, 255, 0.5), transparent);
-  animation: lineGlow 3s ease-in-out infinite;
-}
-
-// Animations
-@keyframes fadeOut {
+@keyframes loader-mark-in {
   to {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+@keyframes loader-reveal {
+  from {
     opacity: 0;
-    visibility: hidden;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes logoGlow {
-  0% { text-shadow: 0 0 20px rgba(0, 204, 255, 0.5); }
-  100% { text-shadow: 0 0 30px rgba(0, 204, 255, 0.8), 0 0 40px rgba(0, 204, 255, 0.3); }
-}
-
-@keyframes bracketAppear {
-  0% { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0); 
+@keyframes loader-bracket-left {
+  from {
+    opacity: 0;
+    transform: translateX(0.4rem);
   }
 }
 
-@keyframes slashRotate {
-  0% { 
-    opacity: 0; 
-    transform: rotate(-90deg) scale(0); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: rotate(0deg) scale(1); 
+@keyframes loader-bracket-right {
+  from {
+    opacity: 0;
+    transform: translateX(-0.4rem);
   }
 }
 
-@keyframes textFadeIn {
-  0% { 
-    opacity: 0; 
-    transform: translateY(30px); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0); 
+@keyframes loader-slash {
+  from {
+    opacity: 0;
+    transform: rotate(-45deg) scale(0.5);
   }
 }
 
-@keyframes progressFadeIn {
-  0% { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0); 
+@keyframes loader-shimmer {
+  to {
+    transform: translateX(100%);
   }
 }
 
-@keyframes dotsFadeIn {
-  0% { 
-    opacity: 0; 
-  }
-  100% { 
-    opacity: 1; 
-  }
-}
-
-@keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-@keyframes dotPulse {
-  0%, 100% { 
-    transform: scale(1); 
-    opacity: 0.7; 
-  }
-  50% { 
-    transform: scale(1.2); 
-    opacity: 1; 
-  }
-}
-
-@keyframes decorationRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes lineGlow {
-  0%, 100% { 
-    opacity: 0.3; 
-    transform: scaleX(1); 
-  }
-  50% { 
-    opacity: 0.8; 
-    transform: scaleX(1.1); 
-  }
-}
-
-// Responsive
-@media (max-width: 768px) {
-  .loading-logo .logo-text {
-    font-size: 3rem;
-  }
-  
-  .loading-welcome h1 {
-    font-size: 2rem;
-  }
-  
-  .loading-progress {
-    width: 250px;
-  }
-  
-  .decoration-circle {
-    width: 150px;
-    height: 150px;
-    top: 15%;
-    right: 10%;
-  }
-  
-  .decoration-line {
-    width: 100px;
-    left: 5%;
+@keyframes loader-orbit {
+  to {
+    transform: rotate(360deg);
   }
 }
 
 @media (max-width: 480px) {
-  .loading-logo .logo-text {
-    font-size: 2.5rem;
+  .loading-logo {
+    width: 6.5rem;
+    border-radius: 1.55rem;
+
+    .logo-text {
+      font-size: 2.3rem;
+    }
   }
-  
-  .loading-welcome h1 {
-    font-size: 1.8rem;
+
+  .loading-copy {
+    margin-top: 1.5rem;
   }
-  
-  .loading-welcome p {
-    font-size: 1rem;
+
+  .loading-corners {
+    inset: 1rem;
   }
-  
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen,
+  .loading-content,
+  .progress-fill {
+    transition-duration: 0.08s;
+  }
+
+  .loading-grid,
+  .loading-glow,
+  .loading-eyebrow,
+  .loading-logo,
+  .loading-copy,
+  .loading-progress,
+  .loading-logo .bracket:first-child,
+  .loading-logo .bracket:last-child,
+  .loading-logo .slash,
+  .progress-bar::after {
+    animation: none;
+  }
+
+  .loading-eyebrow,
+  .loading-logo,
+  .loading-copy,
   .loading-progress {
-    width: 200px;
+    opacity: 1;
+  }
+
+  .loading-logo {
+    transform: rotate(45deg);
   }
 }

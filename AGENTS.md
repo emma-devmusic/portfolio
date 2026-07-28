@@ -12,13 +12,6 @@
 - Punto de entrada: `src/main.tsx`.
 - Vista principal: `src/App.tsx`.
 
-## Comandos de trabajo
-- Instalar dependencias: `npm install`.
-- Desarrollo local: `npm run dev`.
-- Lint: `npm run lint`.
-- Build producción: `npm run build`.
-- Preview build: `npm run preview`.
-
 ## Convenciones para cambios
 - Mantener componentes en TypeScript (`.tsx`) con props tipadas.
 - Evitar variables/imports sin uso, porque rompen lint y build.

@@ -14,6 +14,7 @@ interface Props {
   description?: string;
   imgBack: string;
   imgFront: string;
+  imageAlt?: string;
   techStack?: TechStack[];
   projectUrl?: string;
   githubUrl?: string;
@@ -32,6 +33,7 @@ export const Proyect = ({
   description = "Una aplicación web moderna construida con las últimas tecnologías para ofrecer la mejor experiencia de usuario. Diseño responsive, optimización de rendimiento y código limpio.",
   imgBack,
   imgFront,
+  imageAlt = "Vista previa del proyecto",
   techStack = defaultTechStack,
   projectUrl,
   githubUrl,
@@ -85,8 +87,17 @@ export const Proyect = ({
           <ProjectLinks projectUrl={projectUrl} githubUrl={githubUrl} />
         </div>
         <div className="about-image">
-          <img src={imgBack} alt="image coding" />
-          <img src={imgFront} alt="image coding" />
+          <img
+            src={imgBack}
+            alt={imageAlt}
+            decoding="async"
+          />
+          <img
+            src={imgFront}
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
         </div>
       </div>
     </section>

@@ -65,7 +65,7 @@ export const WelcomeVisitor = ({
   return (
     <section id="welcome-visitor" ref={ref} className={`h-screen place-content-center max-h-[1080px] ${className}`}>
       <div className={`max-w-2xl mx-auto ${isVisible ? "animate-about" : ""}`}>
-        <h1 className="text-end underline underline-offset-5 !text-xl md:!text-3xl">
+        <h1 className="text-end underline underline-offset-5 !text-xl sm:!text-4xl">
           <ReactTyped
             startDelay={3000}
             strings={[`<span class="welcome-strong">${title}</span>`]}
@@ -77,7 +77,7 @@ export const WelcomeVisitor = ({
         {description ? (
           <p className="text-center">{description}</p>
         ) : (
-          <p className="text-end">
+          <p className="text-end sm:text-xl">
             Soy desarrollador web con experiencia en{" "}
             <TechWord icon={<ReactIcon />} label="React.js," />{" "}
             <TechWord icon={<NextIcon />} label="Next.js," />{" "}

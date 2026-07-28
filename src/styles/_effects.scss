@@ -5,9 +5,28 @@
     z-index: 0;
     overflow-x: hidden;
     position: relative;
+    isolation: isolate;
     /* degradado por defecto, diagonal de abajo-izq a arriba-der */
     background: linear-gradient(to top right, rgba(0, 16, 33, 0.95) 0%, rgba(14, 26, 57, 0.95) 100%);
     transition: background 0.3s ease;
+
+    &::before {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        content: "";
+        pointer-events: none;
+        background-image:
+            linear-gradient(rgba(88, 188, 255, 0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(88, 188, 255, 0.035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(circle at center, black, transparent 72%);
+    }
+
+    > div {
+        position: relative;
+        z-index: 1;
+    }
 }
 
 #content-degrade>section {
@@ -39,7 +58,7 @@
 
 .app-fade-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
