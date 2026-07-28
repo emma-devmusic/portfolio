@@ -1,0 +1,22 @@
+{
+  "name": "Portfolio de Emmanuel",
+  "short_name": "Emmanuel",
+  "description": "Portfolio de Emmanuel, Frontend Developer especializado en React y TypeScript.",
+  "icons": [
+    {
+      "src": "/emmanuel-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/emmanuel-logo-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#07162d",
+  "background_color": "#001021",
+  "display": "standalone",
+  "lang": "es-AR"
+}
