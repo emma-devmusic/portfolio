@@ -14,7 +14,14 @@ export const Hero = () => {
         <section id="hero" className='flex flex-col justify-center !w-full'>
             <div className='image_box w-fit'>
                 <div className="img-hero">
-                    <img src={profileImg} alt="Emma Profile" />
+                    <img 
+                        src={profileImg} 
+                        alt="Emma Profile" 
+                        width={300}
+                        height={300}
+                        decoding="async"
+                        fetchPriority="high"
+                    />
                 </div>
             </div>
             <div className="hero_box w-fit !m-0">

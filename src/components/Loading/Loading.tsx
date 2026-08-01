@@ -1,9 +1,18 @@
 import { useEffect, useRef, useState } from "react";
+import profileImg from "../../assets/img/emma-profile.png";
 
 interface LoadingProps {
   onLoadingComplete: () => void;
   duration?: number;
 }
+
+const preloadImage = (src: string) =>
+  new Promise<void>((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve();
+    img.onerror = () => resolve();
+    img.src = src;
+  });
 
 export const Loading = ({ onLoadingComplete, duration = 1400 }: LoadingProps) => {
   const [progress, setProgress] = useState(0);
@@ -45,11 +54,12 @@ export const Loading = ({ onLoadingComplete, duration = 1400 }: LoadingProps) =>
             window.addEventListener("load", () => resolve(), { once: true });
           });
     const fontsReady = document.fonts?.ready ?? Promise.resolve();
+    const profileReady = preloadImage(profileImg);
     const minimumTime = new Promise<void>((resolve) => {
       completionTimer = window.setTimeout(resolve, minimumDuration);
     });
 
-    Promise.all([pageReady, fontsReady, minimumTime]).then(() => {
+    Promise.all([pageReady, fontsReady, profileReady, minimumTime]).then(() => {
       if (cancelled || completedRef.current) {
         return;
       }
