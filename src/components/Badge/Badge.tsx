@@ -22,6 +22,7 @@ export type BadgeVariant =
   | 'rabbitmq'
   | 'express'
   | 'firebase'
+  | 'wordpress'
   | 'default';
 
 interface BadgeProps {

@@ -19,6 +19,8 @@ import feldicoDesktop from "./assets/img/projects/feldico-desktop.png";
 import feldicoPhone from "./assets/img/projects/feldico-phone.png";
 import madowDesktop from "./assets/img/projects/madow-desktop.png";
 import madowPhone from "./assets/img/projects/madow-phone.png";
+import padelCenterDesktop from "./assets/img/projects/padelcenter-desktop.png";
+import padelCenterPhone from "./assets/img/projects/padelcenter-phone.png";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 
 const App = () => {
@@ -248,6 +250,21 @@ const App = () => {
                       { name: "Tailwind", variant: "tailwind", icon: <TechIcons.Tailwind /> },
                     ]}
                     projectUrl="https://madow.tech/"
+                    className="reveal"
+                  />
+                  <Proyect
+                    title="Pádel Center"
+                    description="Tienda online de pádel en Argentina construida con WordPress. Integración con Unicobros y Tarjeta Naranja para pagos, y sincronización de stock en tiempo real con Dux Software."
+                    imgBack={padelCenterDesktop}
+                    imgFront={padelCenterPhone}
+                    imageAlt="Tienda online de pádel Pádel Center ARG"
+                    techStack={[
+                      { name: "WordPress", variant: "wordpress", icon: <TechIcons.WordPress /> },
+                      { name: "Unicobros", variant: "default" },
+                      { name: "Tarjeta Naranja", variant: "default" },
+                      { name: "Dux Software", variant: "default" },
+                    ]}
+                    projectUrl="https://padelcenter.store/"
                     className="reveal"
                   />
                 </div>
