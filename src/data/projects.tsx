@@ -12,6 +12,12 @@ import madowDesktop from "../assets/img/projects/madow-desktop.png";
 import madowPhone from "../assets/img/projects/madow-phone.png";
 import padelCenterDesktop from "../assets/img/projects/padelcenter-desktop.png";
 import padelCenterPhone from "../assets/img/projects/padelcenter-phone.png";
+import dingDesktop from "../assets/img/projects/ding-desktop.png";
+import dingPhone from "../assets/img/projects/ding-phone.png";
+import siHogarDesktop from "../assets/img/projects/sihogar-desktop.png";
+import siHogarPhone from "../assets/img/projects/sihogar-phone.png";
+import clinicaGiulianiDesktop from "../assets/img/projects/clinicagiuliani-desktop.png";
+import clinicaGiulianiPhone from "../assets/img/projects/clinicagiuliani-phone.png";
 
 export interface ProjectItem {
   title: string;
@@ -21,6 +27,7 @@ export interface ProjectItem {
   imageAlt: string;
   techStack: TechStack[];
   projectUrl: string;
+  company?: "Madow.tech" | "Ding";
 }
 
 export const projects: ProjectItem[] = [
@@ -41,6 +48,7 @@ export const projects: ProjectItem[] = [
       { name: "RabbitMQ", variant: "rabbitmq", icon: <TechIcons.RabbitMQ /> },
     ],
     projectUrl: "https://simplebar.net/",
+    company: "Ding",
   },
   {
     title: "ReservIA",
@@ -60,6 +68,22 @@ export const projects: ProjectItem[] = [
       { name: "Firebase", variant: "firebase", icon: <TechIcons.Firebase /> },
     ],
     projectUrl: "https://reservaicclistg.ding.com.ar/",
+    company: "Ding",
+  },
+  {
+    title: "Ding",
+    description:
+      "Emprendimiento de desarrollo de software y estudio creativo. Sitio corporativo orientado a soluciones comerciales, marketing digital y productos a medida para potenciar la presencia online de los clientes.",
+    imgBack: dingDesktop,
+    imgFront: dingPhone,
+    imageAlt: "Landing page del emprendimiento de software Ding.com.ar",
+    techStack: [
+      { name: "Next.js", variant: "next", icon: <TechIcons.Next /> },
+      { name: "React", variant: "react", icon: <TechIcons.React /> },
+      { name: "Bootstrap", variant: "bootstrap", icon: <TechIcons.Bootstrap /> },
+      { name: "TypeScript", variant: "typescript", icon: <TechIcons.TypeScript /> },
+    ],
+    projectUrl: "https://ding.com.ar/",
   },
   {
     title: "Not Locals",
@@ -76,6 +100,7 @@ export const projects: ProjectItem[] = [
       { name: "PostgreSQL", variant: "postgres", icon: <TechIcons.PostgreSQL /> },
     ],
     projectUrl: "https://notlocals.com/",
+    company: "Madow.tech",
   },
   {
     title: "Feldico",
@@ -94,6 +119,7 @@ export const projects: ProjectItem[] = [
       { name: "Knex", variant: "knex", icon: <TechIcons.Knex /> },
     ],
     projectUrl: "https://feldico.com/",
+    company: "Madow.tech",
   },
   {
     title: "Madow.tech",
@@ -124,5 +150,41 @@ export const projects: ProjectItem[] = [
       { name: "Dux Software", variant: "default" },
     ],
     projectUrl: "https://padelcenter.store/",
+    company: "Ding",
+  },
+  {
+    title: "SiHogar",
+    description:
+      "Aplicación para contratar prestadores de servicios del hogar. Guía a las familias en consultas claras, organiza el pedido en pasos simples y continúa la atención por WhatsApp.",
+    imgBack: siHogarDesktop,
+    imgFront: siHogarPhone,
+    imageAlt: "Landing page de SiHogar para contratar prestadores de servicios",
+    techStack: [
+      { name: "React", variant: "react", icon: <TechIcons.React /> },
+      { name: "TypeScript", variant: "typescript", icon: <TechIcons.TypeScript /> },
+      { name: "Tailwind", variant: "tailwind", icon: <TechIcons.Tailwind /> },
+      { name: "Redux", variant: "redux", icon: <TechIcons.Redux /> },
+      { name: "Node.js", variant: "node", icon: <TechIcons.Node /> },
+      { name: "NestJS", variant: "nestjs", icon: <TechIcons.NestJS /> },
+      { name: "PostgreSQL", variant: "postgres", icon: <TechIcons.PostgreSQL /> },
+    ],
+    projectUrl: "https://sihogar.com.ar/",
+    company: "Ding",
+  },
+  {
+    title: "Clínica Giuliani",
+    description:
+      "Sitio web de presentación para una clínica en Charata, Chaco, junto con un sistema de gestión de recibos de sueldo para el personal.",
+    imgBack: clinicaGiulianiDesktop,
+    imgFront: clinicaGiulianiPhone,
+    imageAlt: "Sitio web de presentación de Clínica Giuliani en Charata, Chaco",
+    techStack: [
+      { name: "Next.js", variant: "next", icon: <TechIcons.Next /> },
+      { name: "React", variant: "react", icon: <TechIcons.React /> },
+      { name: "Bootstrap", variant: "bootstrap", icon: <TechIcons.Bootstrap /> },
+      { name: "TypeScript", variant: "typescript", icon: <TechIcons.TypeScript /> },
+    ],
+    projectUrl: "https://clinicagiuliani.net/",
+    company: "Ding",
   },
 ];

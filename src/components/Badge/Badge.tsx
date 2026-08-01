@@ -23,6 +23,7 @@ export type BadgeVariant =
   | 'express'
   | 'firebase'
   | 'wordpress'
+  | 'bootstrap'
   | 'default';
 
 interface BadgeProps {

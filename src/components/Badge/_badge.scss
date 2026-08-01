@@ -280,6 +280,17 @@
   }
 }
 
+.badge-bootstrap {
+  background: linear-gradient(135deg, rgba(121, 82, 179, 0.15), rgba(121, 82, 179, 0.25));
+  color: #7952b3;
+  border-color: rgba(121, 82, 179, 0.3);
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(121, 82, 179, 0.25), rgba(121, 82, 179, 0.35));
+    border-color: rgba(121, 82, 179, 0.5);
+  }
+}
+
 .badge-wordpress {
   background: linear-gradient(135deg, rgba(33, 117, 155, 0.15), rgba(33, 117, 155, 0.25));
   color: #21759b;
