@@ -53,5 +53,59 @@ export const TechIcons = {
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
       <path fill="currentColor" d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441c.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435c.721.72.721 1.884 0 2.604c-.719.719-1.881.719-2.6 0c-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348c.713.721.713 1.883 0 2.6c-.719.721-1.889.721-2.609 0c-.719-.719-.719-1.879 0-2.598c.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401c-.545-.545-.676-1.342-.396-2.009L7.636 3.7L.45 10.881c-.6.605-.6 1.584 0 2.189l10.480 10.477c.604.604 1.582.604 2.186 0L23.546 13.12c.603-.603.603-1.582 0-2.190"/>
     </svg>
-  )
+  ),
+
+  Redux: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M16.633 16.633h3.088c3.855 0 5.98-3.233 5.98-5.98c0-3.099-2.402-5.98-5.98-5.98h-3.088V0H4.366v3.673H1.278C.572 3.673 0 4.245 0 4.951v2.66c0 .706.572 1.278 1.278 1.278H4.366V16.633c0 3.855 3.233 5.98 5.98 5.98c3.099 0 5.98-2.402 5.98-5.98c0-3.855-3.233-5.98-5.98-5.98h-3.673v3.673zm0 0"/>
+    </svg>
+  ),
+
+  NestJS: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2L2 7v10l10 5l10-5V7zm0 2.18l6.9 3.45v6.74L12 17.82l-6.9-3.45V7.63zm-1.1 2.5v5.64l5.5 2.75V7.43z"/>
+    </svg>
+  ),
+
+  PostgreSQL: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v4H2V6a2 2 0 0 1 2-2m18 8v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/>
+    </svg>
+  ),
+
+  Ember: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2L2 8.5V15.5L12 22l10-6.5V8.5zm0 2.5l6.5 4.2v4.6L12 17.5l-6.5-4.2V8.7z"/>
+    </svg>
+  ),
+
+  Knex: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/>
+    </svg>
+  ),
+
+  Kurier: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7m0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5"/>
+    </svg>
+  ),
+
+  RabbitMQ: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 4h16v4H4zm0 6h10v4H4zm0 6h16v4H4z"/>
+    </svg>
+  ),
+
+  Express: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M7 8h10v2H7zm0 4h7v2H7z"/>
+    </svg>
+  ),
+
+  Firebase: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M5.27 3.04L12 21l1.73-4.32L12 9.5zm13.46 0L12 21l-1.73-4.32L12 9.5z"/>
+    </svg>
+  ),
 };

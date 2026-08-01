@@ -13,6 +13,15 @@ export type BadgeVariant =
   | 'figma' 
   | 'git' 
   | 'github'
+  | 'redux'
+  | 'nestjs'
+  | 'postgres'
+  | 'ember'
+  | 'knex'
+  | 'kurier'
+  | 'rabbitmq'
+  | 'express'
+  | 'firebase'
   | 'default';
 
 interface BadgeProps {
