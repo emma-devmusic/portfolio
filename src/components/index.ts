@@ -11,3 +11,4 @@ export * from './FloatingElements';
 export * from './Loading';
 export * from './ProjectLinks/ProjectLinks';
 export * from './WelcomeVisitor/WelcomeVisitor';
+export * from './ProjectsList/ProjectsList';
