@@ -61,7 +61,7 @@ const App = () => {
         className={`relative h-screen ${showContent ? "background-fade-in" : "background-hidden"} ${isScrollLocked ? "scroll-locked" : ""}`}
       >
         <div className="relative h-screen">
-          <div className="flex max-[1199px]:flex-col relative">
+          <div className="flex max-[1199px]:flex-col relative max-w-[1700px] mx-auto">
             <div
               className={`mx-auto max-[1366px]:w-full max-[1366px]:max-w-100 max-[1199px]:max-h-125 max-w-125 min-[1200px]:sticky w-fit top-0 h-fit basis-1/3 ${showContent ? "" : "content-hidden"}`}
             >

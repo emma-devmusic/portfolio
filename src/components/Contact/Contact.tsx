@@ -102,6 +102,15 @@ export const Contact = () => {
           <header className="contact-header">
 
             <div className="contact-heading-icon" aria-hidden="true">
+              <svg
+                className="contact-heading-triangle"
+                viewBox="0 0 120 120"
+              >
+                <polygon points="60,4 112,88 8,88" />
+                <circle cx="60" cy="4" r="2.5" />
+                <circle cx="112" cy="88" r="2.5" />
+                <circle cx="8" cy="88" r="2.5" />
+              </svg>
               <EmailIcon />
             </div>
 

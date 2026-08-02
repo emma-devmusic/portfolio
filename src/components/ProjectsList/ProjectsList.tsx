@@ -7,7 +7,7 @@ import { Proyect } from "../Proyect/Proyect";
 
 const ProjectCard = ({
   title,
-  className = "reveal",
+  className = "",
 }: {
   title: string;
   className?: string;

@@ -25,7 +25,7 @@ export const ExperienceTimeline = ({
     className={`experience-timeline ${className}`.trim()}
     aria-labelledby={headingId}
   >
-    <header className="experience-timeline__header reveal -ml-2!">
+    <header className="experience-timeline__header -ml-2!">
       <span className="experience-timeline__eyebrow mb-2! inline-block ml-1">{eyebrow}</span>
       <h2 id={headingId}>{title}</h2>
       {description ? <p className="ml-1!">{description}</p> : null}
@@ -38,7 +38,7 @@ export const ExperienceTimeline = ({
 
       <div className="experience-timeline__items">
         {projectsTitle ? (
-          <p className="experience-timeline__items-title reveal">
+          <p className="experience-timeline__items-title">
             {projectsTitle}
           </p>
         ) : null}

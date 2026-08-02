@@ -110,32 +110,68 @@
 .contact-heading-icon {
     position: relative;
     display: grid;
-    width: 4.8rem;
-    margin-top: 1.5rem;
+    width: 6.5rem;
+    margin: 2rem 0 0.5rem;
     aspect-ratio: 1;
     place-items: center;
-    border: 1px solid rgba(37, 217, 255, 0.28);
-    border-radius: 1.35rem;
     color: #46e3ff;
-    background:
-        linear-gradient(145deg, rgba(18, 75, 105, 0.65), rgba(4, 22, 39, 0.8));
-    box-shadow:
-        0 0 0 0.55rem rgba(37, 217, 255, 0.025),
-        0 0 2.8rem rgba(37, 217, 255, 0.22),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    isolation: isolate;
 
     &::before {
         position: absolute;
-        inset: -0.8rem;
+        z-index: -1;
+        width: 3.8rem;
+        aspect-ratio: 1;
         content: "";
-        border: 1px solid rgba(37, 217, 255, 0.09);
-        border-radius: 1.8rem;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(37, 217, 255, 0.16),
+            rgba(37, 217, 255, 0.035) 55%,
+            transparent 72%
+        );
+        box-shadow: 0 0 2.8rem rgba(37, 217, 255, 0.25);
     }
 
-    svg {
+    > svg:not(.contact-heading-triangle) {
+        position: relative;
+        z-index: 2;
         width: 2.15rem;
         height: 2.15rem;
         filter: drop-shadow(0 0 0.65rem rgba(37, 217, 255, 0.65));
+    }
+}
+
+.contact-heading-triangle {
+    position: absolute;
+    z-index: 1;
+    inset: -0.65rem;
+    width: calc(100% + 1.3rem);
+    height: calc(100% + 1.3rem);
+    overflow: visible;
+    color: rgba(70, 227, 255, 0.55);
+    filter:
+        drop-shadow(0 0 0.35rem rgba(37, 217, 255, 0.7))
+        drop-shadow(0 0 1rem rgba(100, 108, 255, 0.3));
+    transform-origin: center;
+    animation: contact-triangle-spin 28s linear infinite;
+
+    polygon {
+        fill: rgba(37, 217, 255, 0.018);
+        stroke: currentColor;
+        stroke-width: 1;
+        vector-effect: non-scaling-stroke;
+    }
+
+    circle {
+        fill: #46e3ff;
+        filter: drop-shadow(0 0 0.3rem rgba(70, 227, 255, 0.95));
+    }
+}
+
+@keyframes contact-triangle-spin {
+    to {
+        transform: rotate(360deg);
     }
 }
 
@@ -352,7 +388,7 @@
     }
 
     .contact-heading-icon {
-        width: 4.25rem;
+        width: 5.5rem;
     }
 
     .contact-item {
@@ -396,7 +432,8 @@
         transition-duration: 0.01ms;
     }
 
-    .contact-kicker span {
+    .contact-kicker span,
+    .contact-heading-triangle {
         animation: none;
     }
 }
