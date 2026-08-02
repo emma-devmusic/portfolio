@@ -50,7 +50,7 @@ export const Proyect = ({
       >
         <div className="about-text max-w-lg">
           <div className={`about-line`} ref={ref}>
-            <h2 className="text-2xl mr-5 top-0.5 relative text-nowrap">{title}</h2>
+            <h2 className="text-2xl mr-5 relative text-nowrap">{title}</h2>
             <div className="icon-blur -top-1 relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ export const Proyect = ({
               </svg>
               <span />
             </div>
-            <hr />
+            <hr className="min-[1366px]:top-1 relative"/>
           </div>
           <p className="text-md">{description}</p>
           {/* Tech Stack Badges */}
