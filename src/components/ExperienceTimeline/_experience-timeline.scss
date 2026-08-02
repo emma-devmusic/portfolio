@@ -117,7 +117,7 @@
     left: -1.95rem;
     width: 0.7rem;
     height: 0.7rem;
-    border: 1px solid #61dafb76;
+    border: 1px solid #61dafb56;
     border-radius: 50%;
     background: #07172d;
     box-shadow:
@@ -136,7 +136,7 @@
   }
 
   &--nested {
-    margin-left: 0.75rem;
+    margin-left: 0.45rem;
   }
 }
 
@@ -209,6 +209,15 @@
 
     &--nested {
       margin-left: 0;
+      left: 1rem;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .experience-item {
+    &--nested {
+      margin-left: 0;
+      left: 0.65rem;
     }
   }
 }
