@@ -20,10 +20,12 @@
 }
 
 html {
+  overflow: hidden;
 
   // scroll-snap-type: y mandatory;
   body {
     height: 100vh;
+    overflow: hidden;
   }
 }
 

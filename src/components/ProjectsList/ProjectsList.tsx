@@ -34,59 +34,63 @@ const ProjectCard = ({
 
 export const ProjectsList = () => (
   <div className="projects-list">
-    <ExperienceTimeline
-      eyebrow="Experiencia profesional"
-      title="Madow Tech"
-      description="Casi 2 años creando productos digitales."
-      headingId="madow-experience"
-      featured={
-        <ExperienceItem variant="featured">
-          <ProjectCard title="Madow.tech" />
+    <section id="experiencias" aria-label="Experiencias profesionales">
+      <ExperienceTimeline
+        eyebrow="Experiencia profesional"
+        title="Madow Tech"
+        description="Casi 2 años creando productos digitales."
+        headingId="madow-experience"
+        featured={
+          <ExperienceItem variant="featured">
+            <ProjectCard title="Madow.tech" />
+          </ExperienceItem>
+        }
+      >
+        <ExperienceItem>
+          <ProjectCard title="Feldico" />
         </ExperienceItem>
-      }
-    >
-      <ExperienceItem>
-        <ProjectCard title="Feldico" />
-      </ExperienceItem>
-      <ExperienceItem>
-        <ProjectCard title="Not Locals" />
-      </ExperienceItem>
-    </ExperienceTimeline>
-
-    <ExperienceTimeline
-      eyebrow="Experiencia profesional"
-      title="Ding"
-      description="Proyectos desarrollados para clientes a través de mi emprendimiento."
-      headingId="ding-experience"
-    >
-      <ExperienceItem>
-        <ProjectCard title="SiHogar" />
-      </ExperienceItem>
-      <ExperienceItem>
-        <ProjectCard title="Pádel Center" />
-      </ExperienceItem>
-      <ExperienceItem>
-        <ProjectCard title="Clínica Giuliani" />
-      </ExperienceItem>
-    </ExperienceTimeline>
-
-    <ExperienceTimeline
-      eyebrow="Proyectos personales"
-      title="Mis Proyectos"
-      description="Mi emprendimiento de desarrollo de software y soluciones digitales."
-      headingId="ding-projects"
-      featured={
-        <ExperienceItem variant="featured">
-          <ProjectCard title="Ding" />
+        <ExperienceItem>
+          <ProjectCard title="Not Locals" />
         </ExperienceItem>
-      }
-    >
-      <ExperienceItem>
-        <ProjectCard title="SimpleBar" />
-      </ExperienceItem>
-      <ExperienceItem>
-        <ProjectCard title="ReservIA" />
-      </ExperienceItem>
-    </ExperienceTimeline>
+      </ExperienceTimeline>
+
+      <ExperienceTimeline
+        eyebrow="Experiencia profesional"
+        title="Ding"
+        description="Proyectos desarrollados para clientes a través de mi emprendimiento."
+        headingId="ding-experience"
+      >
+        <ExperienceItem>
+          <ProjectCard title="SiHogar" />
+        </ExperienceItem>
+        <ExperienceItem>
+          <ProjectCard title="Pádel Center" />
+        </ExperienceItem>
+        <ExperienceItem>
+          <ProjectCard title="Clínica Giuliani" />
+        </ExperienceItem>
+      </ExperienceTimeline>
+    </section>
+
+    <section id="proyectos" aria-label="Proyectos personales">
+      <ExperienceTimeline
+        eyebrow="Proyectos personales"
+        title="Mis Proyectos"
+        description="Mi emprendimiento de desarrollo de software y soluciones digitales."
+        headingId="ding-projects"
+        featured={
+          <ExperienceItem variant="featured">
+            <ProjectCard title="Ding" />
+          </ExperienceItem>
+        }
+      >
+        <ExperienceItem>
+          <ProjectCard title="SimpleBar" />
+        </ExperienceItem>
+        <ExperienceItem>
+          <ProjectCard title="ReservIA" />
+        </ExperienceItem>
+      </ExperienceTimeline>
+    </section>
   </div>
 );

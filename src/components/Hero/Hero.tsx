@@ -1,5 +1,6 @@
 import { ReactTyped } from 'react-typed';
 import profileImg from '../../assets/img/emma-profile.png';
+import { Navbar } from '../Navbar/Navbar';
 
 
 export const Hero = () => {
@@ -48,6 +49,7 @@ export const Hero = () => {
                     </p>
                 </div>
             </div>
+            <Navbar />
         </section>
     )
 }
