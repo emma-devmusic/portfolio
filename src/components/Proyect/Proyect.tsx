@@ -45,7 +45,7 @@ export const Proyect = ({
     <section id="project" className={className}>
       <div
         className={`about-box ${
-          isVisible && "animate-about"
+          isVisible ? "animate-about" : "animate-contract-x"
         } max-w-[1200px] mx-auto`}
       >
         <div className="about-text max-w-lg">

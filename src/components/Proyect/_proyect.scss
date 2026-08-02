@@ -82,6 +82,26 @@
     }
 }
 
+.animate-contract-x {
+    .icon-blur span {
+        animation: brilliant-icon .2s ease-out .4s;
+        animation-fill-mode: both;
+    }
+    
+    
+    hr {
+        animation: contract-x 1s ease-out;
+        animation-fill-mode: both;
+    }
+
+    .about-image {
+        img {
+            animation: unbrilliant .2s ease-out .4s;
+            animation-fill-mode: both;
+        }
+    }
+}
+
 @media (max-width:1366px) {
     .about-box {
         justify-content: start;

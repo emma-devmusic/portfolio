@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 export const useIntersection = () => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const { ref, inView } = useInView({
-        threshold: 0.2
+        threshold: 0.1
     });
 
     useEffect(() => {
