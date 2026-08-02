@@ -88,8 +88,15 @@
     }
   }
 
+  &__featured {
+    margin-bottom: 2.5rem;
+  }
+
   &__items {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
     padding-left: 1.5rem;
   }
 
@@ -171,6 +178,10 @@
       padding-left: 1rem;
     }
 
+    &__featured {
+      margin-bottom: 3.25rem;
+    }
+
     &__track {
       padding-left: 1.5rem;
 
@@ -184,6 +195,7 @@
     }
 
     &__items {
+      gap: 4rem;
       padding-left: 0.5rem;
     }
   }

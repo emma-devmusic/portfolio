@@ -118,10 +118,10 @@
 @media (max-width:500px) {
     #project {
         height: 100%;
-        padding: 1rem 0;
+        padding: 1rem 0 2.5rem;
 
         .about-box {
-            margin: 1rem 0rem;
+            margin: 1rem 0 2rem;
             gap: 1rem;
             flex-direction: column;
             min-width: auto !important;

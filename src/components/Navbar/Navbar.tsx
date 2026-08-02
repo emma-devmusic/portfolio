@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const NAV_LINKS = [
   { label: "Experiencias", targetId: "experiencias" },
@@ -6,14 +7,29 @@ const NAV_LINKS = [
   { label: "Contacto", targetId: "contact" },
 ];
 
+const MOBILE_NAV_QUERY = "(max-width: 1199px)";
+
 export const Navbar = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [isMobileNav, setIsMobileNav] = useState(
+    () => window.matchMedia(MOBILE_NAV_QUERY).matches,
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia(MOBILE_NAV_QUERY);
+    const onChange = () => setIsMobileNav(media.matches);
+
+    onChange();
+    media.addEventListener("change", onChange);
+
+    return () => media.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     const scrollRoot = document.getElementById("content-degrade");
-    const sections = NAV_LINKS
-      .map(({ targetId }) => document.getElementById(targetId))
-      .filter((section): section is HTMLElement => Boolean(section));
+    const sections = NAV_LINKS.map(({ targetId }) =>
+      document.getElementById(targetId),
+    ).filter((section): section is HTMLElement => Boolean(section));
 
     if (!scrollRoot || sections.length === 0) {
       return;
@@ -55,7 +71,14 @@ export const Navbar = () => {
 
     const rootRect = scrollRoot.getBoundingClientRect();
     const targetRect = target.getBoundingClientRect();
-    const targetTop = scrollRoot.scrollTop + targetRect.top - rootRect.top;
+    const topbar = document.querySelector(".topbar");
+    const topbarOffset =
+      topbar instanceof HTMLElement &&
+      window.getComputedStyle(topbar).position === "fixed"
+        ? topbar.offsetHeight + 12
+        : 0;
+    const targetTop =
+      scrollRoot.scrollTop + targetRect.top - rootRect.top - topbarOffset;
     const maxScroll = scrollRoot.scrollHeight - scrollRoot.clientHeight;
 
     // La app tiene su propio contenedor de scroll. Evitamos scrollIntoView
@@ -68,8 +91,8 @@ export const Navbar = () => {
     window.history.replaceState(null, "", `#${targetId}`);
   };
 
-  return (
-    <header className="topbar">
+  const topbar = (
+    <header className={`topbar${isMobileNav ? " topbar--fixed" : ""}`}>
       <nav className="topbar__nav" aria-label="Navegación principal">
         <ul>
           {NAV_LINKS.map(({ label, targetId }) => (
@@ -93,4 +116,12 @@ export const Navbar = () => {
       </nav>
     </header>
   );
+
+  // En mobile lo montamos en body para que `position: fixed` no quede
+  // atrapado por transforms/filters de ancestros del Hero.
+  if (isMobileNav) {
+    return createPortal(topbar, document.body);
+  }
+
+  return topbar;
 };
