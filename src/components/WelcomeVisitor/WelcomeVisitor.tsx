@@ -79,16 +79,12 @@ export const WelcomeVisitor = ({
           <p className="text-center">{description}</p>
         ) : (
           <p className="text-end sm:text-xl">
-            Soy desarrollador web con experiencia en{" "}
+            Como verás, mi nombre es Emmanuel, y soy desarrollador web con más de 5 años de experiencia. He trabajado en proyectos de diferentes tamaños y complejidades en{" "}
             <TechWord icon={<ReactIcon />} label="React.js," />{" "}
             <TechWord icon={<NextIcon />} label="Next.js," />{" "}
             <TechWord icon={<EmberIcon />} label="Ember.js," /> y{" "}
-            <TechWord icon={<TypeScriptIcon />} label="TypeScript" /> y diseño de
-            interfaces. Soy un amante del desarrollo y la música; intento combinar creatividad y lógica en cada trabajo.
-            Estoy siempre con ganas de escuchar algún nuevo proyecto, nuevo reto
-            y aportar en él de la mejor manera posible. Estoy acá, siempre
-            abierto a críticas, sugerencias y nuevas ideas. No dudes en
-            contactarme.
+            <TechWord icon={<TypeScriptIcon />} label="TypeScript." /> Soy un amante del desarrollo y la música. (Si alguna vez me ves trabajando, seguro me vas a escuchar cantar algo 😅). Hoy en día, debido a las circunstancias de los avances tecnológicos, utilizo AI para generar código potenciando la productividad y la creatividad.
+             Estoy siempre con ganas de algún nuevo proyecto, nuevo reto y aportar en él dando lo mejor de mi. Estoy acá, siempre abierto al aprendizaje, críticas, sugerencias y nuevas ideas. Soy una persona inquieta y proactiva. No dudes en contactarme.
           </p>
         )}
       </div>

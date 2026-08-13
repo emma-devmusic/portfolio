@@ -56,6 +56,7 @@ export const Hero = () => {
                 targetId="welcome-visitor"
                 label="Ir a la sección de presentación"
                 delayMs={5000}
+                align="center"
             />
         </section>
     )
