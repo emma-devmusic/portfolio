@@ -1,6 +1,7 @@
 import { useIntersection } from "../../helpers/helpers";
 import { CSSProperties, ReactNode } from "react";
 import { ReactTyped } from "react-typed";
+import { SectionAdvanceButton } from "../SectionAdvanceButton/SectionAdvanceButton";
 
 interface WelcomeVisitorProps {
   title?: string;
@@ -91,6 +92,12 @@ export const WelcomeVisitor = ({
           </p>
         )}
       </div>
+      <SectionAdvanceButton
+        sectionId="welcome-visitor"
+        targetId="experiencias"
+        label="Ir a la sección de experiencias"
+        delayMs={3000}
+      />
     </section>
   );
 };

@@ -11,5 +11,6 @@ export * from './FloatingElements';
 export * from './Loading';
 export * from './ProjectLinks/ProjectLinks';
 export * from './WelcomeVisitor/WelcomeVisitor';
+export * from './SectionAdvanceButton/SectionAdvanceButton';
 export * from './ProjectsList/ProjectsList';
 export * from './ExperienceTimeline/ExperienceTimeline';

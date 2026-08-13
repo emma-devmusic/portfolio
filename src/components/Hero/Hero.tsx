@@ -1,6 +1,7 @@
 import { ReactTyped } from 'react-typed';
 import profileImg from '../../assets/img/emma-profile.png';
 import { Navbar } from '../Navbar/Navbar';
+import { SectionAdvanceButton } from '../SectionAdvanceButton/SectionAdvanceButton';
 
 
 export const Hero = () => {
@@ -50,6 +51,12 @@ export const Hero = () => {
                 </div>
             </div>
             <Navbar />
+            <SectionAdvanceButton
+                sectionId="hero"
+                targetId="welcome-visitor"
+                label="Ir a la sección de presentación"
+                delayMs={5000}
+            />
         </section>
     )
 }
