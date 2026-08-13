@@ -67,11 +67,9 @@ const App = () => {
             >
               <Hero />
             </div>
-            <div
-              className={`max-w-5xl mx-auto w-full ${showContent ? "content-slide-in-right" : "content-hidden"}`}
-            >
+            <div className="max-w-5xl mx-auto w-full">
               <div className="max-w-4xl mx-auto px-4">
-                <WelcomeVisitor className="reveal" />
+                <WelcomeVisitor />
                 <ProjectsList />
                 <Contact />
               </div>

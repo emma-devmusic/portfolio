@@ -43,6 +43,22 @@
     color: #ffffff;
 }
 
+.welcome-description {
+    opacity: 0;
+    transform: translateX(50px);
+
+    &--visible {
+        animation: welcome-description-in 0.8s ease-out forwards;
+    }
+}
+
+@keyframes welcome-description-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .tech-inline {
     display: inline-flex;
     align-items: center;
@@ -90,6 +106,14 @@
     &:hover {
         border-color: rgba(0, 204, 255, 0.8);
         transform: translateY(-2px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .welcome-description--visible {
+        opacity: 1;
+        transform: none;
+        animation: none;
     }
 }
 

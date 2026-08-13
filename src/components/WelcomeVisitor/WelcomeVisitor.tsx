@@ -1,5 +1,5 @@
 import { useIntersection } from "../../helpers/helpers";
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, ReactNode, useState } from "react";
 import { ReactTyped } from "react-typed";
 import { SectionAdvanceButton } from "../SectionAdvanceButton/SectionAdvanceButton";
 
@@ -59,6 +59,7 @@ export const WelcomeVisitor = ({
   className = "",
 }: WelcomeVisitorProps) => {
   const { ref, isVisible } = useIntersection();
+  const [isTitleComplete, setIsTitleComplete] = useState(false);
   const typedStyle: CSSProperties = {
     display: "inline-block",
   };
@@ -73,12 +74,19 @@ export const WelcomeVisitor = ({
             typeSpeed={40}
             style={typedStyle}
             cursorChar=""
+            onComplete={() => setIsTitleComplete(true)}
           />
         </h1>
         {description ? (
-          <p className="text-center">{description}</p>
+          <p
+            className={`welcome-description text-center${isTitleComplete ? " welcome-description--visible" : ""}`}
+          >
+            {description}
+          </p>
         ) : (
-          <p className="text-end sm:text-xl">
+          <p
+            className={`welcome-description text-end sm:text-xl${isTitleComplete ? " welcome-description--visible" : ""}`}
+          >
             Como verás, mi nombre es Emmanuel, y soy desarrollador web con más de 5 años de experiencia. He trabajado en proyectos de diferentes tamaños y complejidades en{" "}
             <TechWord icon={<ReactIcon />} label="React.js," />{" "}
             <TechWord icon={<NextIcon />} label="Next.js," />{" "}
