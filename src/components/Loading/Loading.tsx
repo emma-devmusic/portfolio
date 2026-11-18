@@ -14,7 +14,7 @@ const preloadImage = (src: string) =>
     img.src = src;
   });
 
-export const Loading = ({ onLoadingComplete, duration = 1400 }: LoadingProps) => {
+export const Loading = ({ onLoadingComplete, duration = 1200 }: LoadingProps) => {
   const [progress, setProgress] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
   const completedRef = useRef(false);
@@ -32,12 +32,9 @@ export const Loading = ({ onLoadingComplete, duration = 1400 }: LoadingProps) =>
     const startedAt = performance.now();
 
     const updateProgress = (now: number) => {
-      const elapsed = Math.max(
-        0,
-        Math.min((now - startedAt) / minimumDuration, 1),
-      );
+      const elapsed = Math.min((now - startedAt) / minimumDuration, 1);
       const easedProgress = 1 - Math.pow(1 - elapsed, 3);
-      const nextProgress = Math.floor(easedProgress * 92);
+      const nextProgress = Math.floor(easedProgress * 90);
 
       setProgress((current) =>
         current === nextProgress ? current : nextProgress,
@@ -72,9 +69,9 @@ export const Loading = ({ onLoadingComplete, duration = 1400 }: LoadingProps) =>
         setIsExiting(true);
         completionTimer = window.setTimeout(
           onLoadingComplete,
-          reducedMotion ? 80 : 420,
+          reducedMotion ? 80 : 500,
         );
-      }, reducedMotion ? 20 : 160);
+      }, reducedMotion ? 20 : 280);
     });
 
     return () => {
@@ -87,50 +84,41 @@ export const Loading = ({ onLoadingComplete, duration = 1400 }: LoadingProps) =>
 
   return (
     <div
-      className={`loading-screen ${
-        isExiting ? "loading-screen--exiting" : ""
-      }`}
+      className={`loading-screen ${isExiting ? "loading-screen--exiting" : ""}`}
       role="status"
-      aria-label="Preparando el portafolio"
+      aria-live="polite"
     >
-      <div className="loading-grid" aria-hidden="true" />
-      <div className="loading-glow loading-glow--one" aria-hidden="true" />
-      <div className="loading-glow loading-glow--two" aria-hidden="true" />
+      <span className="sr-only">Cargando portafolio</span>
 
-      <div className="loading-content">
-        <p className="loading-eyebrow">Emmanuel · Portfolio</p>
+      <div className="loading-content" aria-hidden="true">
+        <svg
+          className="loading-mark"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            className="loading-mark__slash"
+            d="M22 9 11 55"
+            stroke="currentColor"
+            strokeWidth="4.5"
+            strokeLinecap="square"
+          />
+          <path
+            className="loading-mark__chevron"
+            d="m31 20 21 12-21 12"
+            stroke="currentColor"
+            strokeWidth="9"
+            strokeLinejoin="miter"
+          />
+        </svg>
 
-        <div className="loading-logo" aria-hidden="true">
-          <div className="logo-text">
-            <span className="bracket">{"<"}</span>
-            <span className="slash">/</span>
-            <span className="bracket">{">"}</span>
-          </div>
+        <div className="loading-track">
+          <div
+            className="loading-track__fill"
+            style={{ transform: `scaleX(${progress / 100})` }}
+          />
         </div>
-
-        <p className="loading-copy">Preparando la experiencia</p>
-
-        <div className="loading-progress">
-          <div className="progress-meta">
-            <span>Cargando</span>
-            <span>{progress}%</span>
-          </div>
-          <div className="progress-bar">
-            <div
-              className="progress-fill"
-              style={{ width: `${progress}%` }}
-              role="progressbar"
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-valuenow={progress}
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="loading-corners" aria-hidden="true">
-        <span />
-        <span />
       </div>
     </div>
   );
