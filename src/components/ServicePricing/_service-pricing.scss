@@ -1,0 +1,529 @@
+// La web principal bloquea el scroll del documento (overflow hidden en html/body)
+// y hace scroll dentro de #content-degrade. Esta página necesita scroll normal,
+// así que solo se corrige cuando el documento tiene la clase .presupuesto-doc.
+.presupuesto-doc,
+.presupuesto-doc body {
+  height: auto;
+  min-height: 100%;
+  overflow: auto;
+}
+
+.presupuesto-page {
+  box-sizing: border-box;
+  min-height: 100dvh;
+  padding: 2rem 1rem 4rem;
+  background: linear-gradient(to top right, rgb(0, 16, 33) 0%, rgb(14, 26, 57) 100%);
+
+  .service-pricing {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+}
+
+.presupuesto-top {
+  max-width: 60rem;
+  margin: 0 auto 3rem;
+
+  a {
+    display: inline-block;
+    border-radius: 0.75rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.85;
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px #61dafb;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+  }
+}
+
+.presupuesto-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 60rem;
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  &__logo {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+  }
+
+  &__name {
+    margin: 0;
+    color: #ffffff;
+    font-family: Agrandir, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+  }
+
+  &__role {
+    margin: 0.15rem 0 0;
+    color: #61dafb;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+}
+
+.service-pricing {
+  margin: 3rem 0 4rem;
+  padding: 0 0 1rem;
+  color: #ffffff;
+
+  &__header {
+    max-width: 42rem;
+    margin: 0 0 2rem;
+
+    h1 {
+      margin: 0.25rem 0 0.6rem;
+      font-family: Agrandir, sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .service-pricing__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+  }
+
+}
+
+// Botón de la página de presupuesto: contorno celeste por defecto,
+// relleno celeste en la variante --primary.
+.service-pricing__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid rgba(97, 218, 251, 0.45);
+  border-radius: 999px;
+  color: #61dafb;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  span {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(97, 218, 251, 0.12);
+    border-color: #61dafb;
+    color: #ffffff;
+    outline: none;
+
+    span {
+      transform: translateX(4px);
+    }
+  }
+
+  &--primary {
+    border-color: #61dafb;
+    background: #61dafb;
+    color: #04121f;
+    font-weight: 600;
+
+    &:hover,
+    &:focus-visible {
+      background: #8be6ff;
+      border-color: #8be6ff;
+      color: #04121f;
+    }
+  }
+}
+
+.service-pricing {
+  &__eyebrow {
+    display: inline-block;
+    color: #61dafb;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  &__tiers {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+
+  &__tier {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(97, 218, 251, 0.18);
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgba(8, 27, 49, 0.7), rgba(4, 12, 23, 0.45));
+    transition: border-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      border-color: rgba(97, 218, 251, 0.45);
+      transform: translateY(-3px);
+    }
+
+    h3 {
+      margin: 0;
+      font-family: Agrandir, sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  &__rate {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 0;
+
+    span {
+      color: #61dafb;
+      font-size: 1.8rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    small {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.8rem;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  &__footer {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+
+  &__subtitle {
+    margin: 0 0 0.9rem;
+    color: #61dafb;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  &__block {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.1rem;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.9rem;
+      line-height: 1.5;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.6rem;
+        left: 0;
+        width: 0.4rem;
+        height: 1px;
+        background: #61dafb;
+      }
+    }
+  }
+
+  &__note {
+    margin: -0.4rem 0 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    dt {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.9rem;
+    }
+
+    dd {
+      margin: 0;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  &__disclaimer {
+    margin: 2.5rem 0 0;
+    padding-left: 1rem;
+    border-left: 2px solid #61dafb;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  &__contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding: 1.75rem;
+    border: 1px solid rgba(97, 218, 251, 0.18);
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgba(8, 27, 49, 0.7), rgba(4, 12, 23, 0.45));
+
+    h2 {
+      margin: 0 0 0.35rem;
+      font-family: Agrandir, sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.9rem;
+    }
+  }
+
+  &__contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  // Solo se muestra al imprimir, donde los botones no sirven.
+  &__contact-print {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-pricing__contact {
+    padding: 1.25rem;
+  }
+
+  .service-pricing__contact-actions,
+  .service-pricing__contact-actions .service-pricing__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-pricing__meta span[aria-hidden="true"] {
+    display: none;
+  }
+
+  .service-pricing__header .service-pricing__meta {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+// Versión para imprimir o guardar como PDF: fondo blanco y texto oscuro.
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  .presupuesto-doc,
+  .presupuesto-doc body {
+    background: #ffffff;
+  }
+
+  .presupuesto-page {
+    min-height: 0;
+    padding: 0;
+    background: none;
+    color: #0b1a2e;
+  }
+
+  .service-pricing {
+    margin: 0;
+    color: #0b1a2e;
+
+    &__header p,
+    &__header .service-pricing__meta,
+    &__description,
+    &__note,
+    &__block li,
+    &__row dt,
+    &__disclaimer {
+      color: #33415c;
+    }
+
+    &__eyebrow,
+    &__subtitle,
+    &__rate span {
+      color: #0a6f8f;
+    }
+
+    &__rate small {
+      color: #5b6880;
+    }
+
+    &__tier {
+      border-color: #c9d6e3;
+      background: none;
+      break-inside: avoid;
+    }
+
+    &__row {
+      border-color: #dde5ee;
+
+      dd {
+        color: #0b1a2e;
+      }
+    }
+
+    &__disclaimer {
+      border-color: #0a6f8f;
+    }
+  }
+
+  .service-pricing__header {
+    margin-bottom: 1.25rem;
+  }
+
+  .service-pricing__tiers {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .service-pricing__tier {
+    gap: 0.5rem;
+    padding: 1rem;
+
+    h3 {
+      font-size: 0.95rem;
+    }
+  }
+
+  .service-pricing__rate span {
+    font-size: 1.4rem;
+  }
+
+  .service-pricing__description {
+    font-size: 0.82rem;
+  }
+
+  .service-pricing__footer,
+  .service-pricing__disclaimer {
+    margin-top: 1.5rem;
+  }
+
+  .presupuesto-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-color: #dde5ee;
+    break-inside: avoid;
+
+    &__name {
+      color: #0b1a2e;
+    }
+
+    &__role {
+      color: #0a6f8f;
+    }
+  }
+
+  .service-pricing__button,
+  .service-pricing__contact-actions {
+    display: none;
+  }
+
+  // El footer ya muestra logo y nombre; en papel no hace falta repetirlo arriba.
+  .presupuesto-top {
+    display: none;
+  }
+
+  .service-pricing__contact {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1rem;
+    border-color: #c9d6e3;
+    background: none;
+    break-inside: avoid;
+
+    h2 {
+      font-size: 1.05rem;
+      color: #0b1a2e;
+    }
+
+    p {
+      color: #33415c;
+      font-size: 0.82rem;
+    }
+
+    .service-pricing__contact-print {
+      display: block;
+      margin-top: 0.3rem;
+      color: #0a6f8f;
+      font-weight: 600;
+    }
+  }
+}
